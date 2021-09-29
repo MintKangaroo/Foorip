@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'dart:async';
 
 class SplashPage extends StatefulWidget {
-  const SplashPage({ Key? key }) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   _SplashPageState createState() => _SplashPageState();
@@ -11,18 +11,19 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     //Splash 후 페이지 이동
-    Get.to('/MainPage');
+    Timer(Duration(seconds: 2), () => Get.toNamed('/MainPage'));
+
     return Scaffold(
-      body: (
-        Center(
-          child: (
-            Text('Splash')
-          ),
-        )
-      ),
+      body: (Center(
+        child: (Text('Splash')),
+      )),
     );
   }
 }
