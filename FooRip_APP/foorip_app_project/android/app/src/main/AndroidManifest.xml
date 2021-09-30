@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.foorip_app_project">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+ 
    <application
         android:label="foorip_app_project"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +40,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!--구글맵 API 추가-->
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDOiEl5sZAtLXi10b3SP5Rf5gwS7EEWk44"/>
     </application>
 </manifest>
