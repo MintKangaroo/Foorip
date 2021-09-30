@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({ Key? key }) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -11,8 +11,26 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return Scaffold(
+      body: Column(
+        children: [
+          Flexible(
+            child: Column(
+              children: [
+                Row(
+                  children: [],
+                )
+              ],
+            ),
+            flex: 1,
+          ),
+          Flexible(
+            child: Container(color: Colors.yellow), //TODO:  여기에 지도 구현하기
+            flex: 5,
+          ),
+        ],
+      ),
+      //TODO: BottomNavigatorBar 구현
     );
   }
 }

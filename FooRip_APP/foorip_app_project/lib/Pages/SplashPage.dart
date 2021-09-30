@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     //Splash 후 페이지 이동
-    Timer(Duration(seconds: 2), () => Get.toNamed('/MainPage'));
+    Timer(Duration(seconds: 2), () => Get.offAndToNamed('/MainPage'));
 
     return Scaffold(
       body: (Center(
