@@ -19,7 +19,8 @@ class _MainPageState extends State<MainPage> {
               children: [
                 Row(
                   children: [],
-                )
+                ), //TODO: 앱 이름과 식당 이름 추가
+                Container(),//TODO: 필터 검색 
               ],
             ),
             flex: 1,
