@@ -6,6 +6,9 @@ import 'Pages/SplashPage.dart';
 import 'Pages/MainPage.dart';
 import 'Pages/LoginPage.dart';
 import 'Pages/RegisterPage.dart';
+import 'Pages/MyPage.dart';
+import 'Pages/FavoritePage.dart';
+import 'Pages/StampPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +30,9 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/MainPage', page: () => MainPage()),
           GetPage(name: '/LoginPage', page: () => LoginPage()),
           GetPage(name: '/RegisterPage', page: () => RegisterPage()),
+          GetPage(name: '/MyPage', page: () => MyPage()),
+          GetPage(name: '/FavoritePage', page: () => FavoritePage()),
+          GetPage(name: '/StampPage', page: () => StampPage()),
         ]);
   }
 }
