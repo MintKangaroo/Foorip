@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'Pages/SplashPage.dart';
 import 'Pages/MainPage.dart';
 import 'Pages/LoginPage.dart';
+import 'Pages/RegisterPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/', page: () => SplashPage()),
           GetPage(name: '/MainPage', page: () => MainPage()),
           GetPage(name: '/LoginPage', page: () => LoginPage()),
+          GetPage(name: '/RegisterPage', page: () => RegisterPage()),
         ]);
   }
 }
