@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -8,6 +9,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  void MovetoMain() {
+    Get.offAndToNamed('/MainPage');
+  }
+
+  void MovetoRegister() {
+    Get.toNamed('/RegisterPage');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -61,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Flexible(
-              flex:2,
+              flex: 2,
               child: Container(child: SizedBox()),
             ),
             Flexible(
@@ -71,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        //TODO: Login버튼이 눌렸을 때
+                        MovetoMain();
                       },
                       child: Container(
                         width: 40,
@@ -81,7 +90,11 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Row(
                       children: [
-                        GestureDetector(onTap: () {}, child: Text("회원가입하러가기")),
+                        GestureDetector(
+                            onTap: () {
+                              MovetoRegister();
+                            },
+                            child: Text("회원가입")),
                         GestureDetector(onTap: () {}, child: Text("아이디 찾기")),
                         GestureDetector(onTap: () {}, child: Text("비밀번호 찾기")),
                       ],
