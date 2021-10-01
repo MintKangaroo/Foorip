@@ -18,6 +18,7 @@ class _MainPageState extends State<MainPage> {
     target: LatLng(36.982110, 127.528039),
     zoom: 14.4746,
   );
+  
 
 
   //bottomNavigator 변수 정의
@@ -66,19 +67,12 @@ class _MainPageState extends State<MainPage> {
               flex: 1,
             ),
             Flexible(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 1, 0, 1),
-                
-                child: Container(
-                  color: Color(0xffffb969),
-                  child: GoogleMap(
-                    mapType: MapType.normal,
-                    initialCameraPosition: _kGooglePlex,
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller.complete(controller);
-                    },
-                  ),
-                ),
+              child: GoogleMap(
+                mapType: MapType.normal,
+                initialCameraPosition: _kGooglePlex,
+                onMapCreated: (GoogleMapController controller) {
+                  _controller.complete(controller);
+                },
               ), //구글맵 구현
               flex: 5,
             ),
