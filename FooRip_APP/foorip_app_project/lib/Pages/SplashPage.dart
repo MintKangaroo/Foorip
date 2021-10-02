@@ -17,12 +17,16 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Display width, height 구하기
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
+
     //Splash 후 페이지 이동
     Timer(Duration(seconds: 2), () => Get.offAndToNamed('/LoginPage'));
 
     return Scaffold(
       body: (Center(
-        child: (Text('Splash')),
+        child: (Text('Splash', style: TextStyle(fontSize: 35),)),
       )),
     );
   }

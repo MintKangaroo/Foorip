@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:foorip_app_project/Function/GoogleMapFun.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:foorip_app_project/Function/GoogleMapFun.dart';
 
 class StampPage extends StatefulWidget {
   const StampPage({ Key? key }) : super(key: key);
@@ -9,6 +12,8 @@ class StampPage extends StatefulWidget {
 }
 
 class _StampPageState extends State<StampPage> {
+
+  
   //bottomNavigator 변수 정의
   int _selectedIndex = 3;
   final List _children = [
@@ -33,8 +38,15 @@ class _StampPageState extends State<StampPage> {
 
   @override
   Widget build(BuildContext context) {
+    //Display width, height 구하기
+    var displayWidth = MediaQuery.of(context).size.width;
+    var displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Container(),
+        body: Column(
+          children: [
+            Flexible(child: Container(child: GoogleMapArea(),))
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,
