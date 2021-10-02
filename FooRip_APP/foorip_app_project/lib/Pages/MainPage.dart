@@ -14,11 +14,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
 
   
-
-
   //bottomNavigator 변수 정의
   int _selectedIndex = 0;
-  final List _children = ['/MainPage', '/MyPage', '/Cafe', '/Setting'];
+  final List _children = [
+    '/MainPage',
+    '/MyPage',
+    '/FavoritePage',
+    '/StampPage'
+  ];
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
@@ -28,7 +31,7 @@ class _MainPageState extends State<MainPage> {
     } else {
       setState(() {
         _selectedIndex = index;
-        Navigator.pushNamed(context, _children[index]);
+        Get.toNamed(_children[index]);
       });
     }
   }
