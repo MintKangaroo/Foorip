@@ -12,6 +12,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  //필터 검색 입력창 변수 정의
+  final FilterIDtextController = new TextEditingController();
 
   
   //bottomNavigator 변수 정의
@@ -59,7 +61,34 @@ class _MainPageState extends State<MainPage> {
                           )
                     ],
                   ),
-                  Container(), //TODO: 필터 검색
+                  SizedBox(height: 20,)
+                  ,
+                  Container(
+                    
+                    width: displayWidth * 0.8,
+                    decoration: BoxDecoration(
+                      color: Color(0xffffdfa166).withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: TextFormField(
+                        controller: FilterIDtextController,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: '필터를 선택하세요.',
+                          hintStyle:
+                              TextStyle(color: Color(0xffffdfa166), fontSize: 18),
+                          suffixIcon: Icon(
+                            Icons.tune,
+                            size: 30,
+                            color: Color(0xffffdfa166),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ], 
               ),
               flex: 1,

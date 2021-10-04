@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
 
-    //Splash 후 페이지 이동
+    //2초 Splash 후 페이지 이동
     Timer(Duration(seconds: 2), () => Get.offAndToNamed('/LoginPage'));
 
     return Scaffold(
