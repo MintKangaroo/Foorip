@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:async';
 import 'package:foorip_app_project/Function/GoogleMapFun.dart';
@@ -38,6 +39,11 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
+  //Send 버튼이 클릭됐을 때 SendPage로 이동하는 함수
+  void MovetoSend() {
+    Get.toNamed('/SendPage');
+  }
+
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
@@ -48,17 +54,32 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         body: Column(
           children: [
-            Flexible(
+            Container(
+              height: displayHeight * 0.15,
               child: Column(
                 children: [
                   SizedBox(height: 10,),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      SizedBox(),
                       Text("푸립", style: TextStyle(fontSize: 25),),
-                      Container(
-                          //TODO: SendPage로 이어짐
-                          )
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: GestureDetector(
+                          onTap: (){
+                            MovetoSend();
+                          },
+                          child: Container(
+                              width: 50,
+                              height: 30,
+                              color: Colors.orange,
+                              child: Icon(
+                                Icons.send,
+                              ),
+                              ),
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(height: 20,)
@@ -91,12 +112,8 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ], 
               ),
-              flex: 1,
             ),
-            Flexible(
-              child: GoogleMapArea(),
-              flex: 5,
-            ),
+            Expanded(child: GoogleMapArea()),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

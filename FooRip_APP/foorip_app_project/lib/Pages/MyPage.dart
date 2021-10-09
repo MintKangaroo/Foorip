@@ -40,7 +40,10 @@ class _MyPageState extends State<MyPage> {
     var displayHeight = MediaQuery.of(context).size.height;
     
     return Scaffold(
-      body: Container(),
+      body: Column(children: [
+        Flexible(flex: 1,child: Container(color: Colors.orange,),),
+        Flexible(flex: 1,child: Container(color: Colors.white,),)
+      ],),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.white,

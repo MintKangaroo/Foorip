@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:foorip_app_project/Function/ServerContact.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -25,6 +26,9 @@ class _LoginPageState extends State<LoginPage> {
   void MovetoRegister() {
     Get.toNamed('/RegisterPage');
   }
+
+  //로그인 서버와 연동 함수 정의
+
 
   @override
   Widget build(BuildContext context) {
