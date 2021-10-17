@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
@@ -63,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Container(
                   //3
-                  height: 165,
+                 
                   child: Column(
                     children: [
                       Form(
@@ -158,7 +159,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Container(
                     //5
-                    height: 100,
+
                     child: Column(
                       children: [
                         GestureDetector(
