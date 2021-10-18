@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
 
     return Scaffold(
       body: (Center(
-        child: Image.asset("images/fooriplogo.png",),
+        child: Image.asset("assets/images/fooriplogo.png",width: 100,),
       )),
     );
   }

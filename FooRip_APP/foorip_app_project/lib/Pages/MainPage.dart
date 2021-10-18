@@ -113,7 +113,7 @@ class _MainPageState extends State<MainPage> {
                 ], 
               ),
             ),
-            Expanded(child: GoogleMapArea()),
+            Expanded(child: Container()),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
