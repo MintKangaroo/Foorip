@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:async';
 import 'package:foorip_app_project/Function/GoogleMapFun.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -113,7 +114,7 @@ class _MainPageState extends State<MainPage> {
                 ], 
               ),
             ),
-            Expanded(child: Container()),
+            Expanded(child: GoogleMapArea()),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
