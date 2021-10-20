@@ -5,7 +5,6 @@ import 'dart:async';
 import 'package:foorip_app_project/Function/GoogleMapFun.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -17,7 +16,6 @@ class _MainPageState extends State<MainPage> {
   //필터 검색 입력창 변수 정의
   final FilterIDtextController = new TextEditingController();
 
-  
   //bottomNavigator 변수 정의
   int _selectedIndex = 0;
   final List _children = [
@@ -59,34 +57,39 @@ class _MainPageState extends State<MainPage> {
               height: displayHeight * 0.15,
               child: Column(
                 children: [
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(),
-                      Text("푸립", style: TextStyle(fontSize: 25),),
+                      Text(
+                        "푸립",
+                        style: TextStyle(fontSize: 25),
+                      ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             MovetoSend();
                           },
                           child: Container(
-                              width: 50,
-                              height: 30,
-                              color: Colors.orange,
-                              child: Icon(
-                                Icons.send,
-                              ),
-                              ),
+                            width: 50,
+                            height: 30,
+                            color: Colors.orange,
+                            child: Icon(
+                              Icons.send,
+                            ),
+                          ),
                         ),
                       )
                     ],
                   ),
-                  SizedBox(height: 20,)
-                  ,
+                  SizedBox(
+                    height: 20,
+                  ),
                   Container(
-                    
                     width: displayWidth * 0.8,
                     decoration: BoxDecoration(
                       color: Color(0xffffdfa166).withOpacity(0.4),
@@ -100,8 +103,8 @@ class _MainPageState extends State<MainPage> {
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: '필터를 선택하세요.',
-                          hintStyle:
-                              TextStyle(color: Color(0xffffdfa166), fontSize: 18),
+                          hintStyle: TextStyle(
+                              color: Color(0xffffdfa166), fontSize: 18),
                           suffixIcon: Icon(
                             Icons.tune,
                             size: 30,
@@ -111,7 +114,7 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
-                ], 
+                ],
               ),
             ),
             Expanded(child: GoogleMapArea()),
@@ -176,10 +179,6 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-
-      
     );
-    
   }
-
 }
