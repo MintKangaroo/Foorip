@@ -11,7 +11,7 @@ class SendPage extends StatefulWidget {
 class _SendPageState extends State<SendPage> {
   // 보내기 버튼 클릭시 메인 페이지 이동
   void MovetoMain() {
-    Get.offAndToNamed('/MainPage');
+    Get.off('/SendPage');
   }
 
   @override
