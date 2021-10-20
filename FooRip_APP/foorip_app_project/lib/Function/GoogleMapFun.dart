@@ -10,9 +10,19 @@ final CameraPosition _kGooglePlex = CameraPosition(
   zoom: 14.4746,
 );
 
+Set<Marker> Makingmarker() {
+  return <Marker>[
+    Marker(
+        markerId: MarkerId("marker_1"),
+        position: LatLng(36.982110, 127.528039),
+        infoWindow: InfoWindow(title: "대금고"))
+  ].toSet();
+}
+
 //구글맵 Widget 구현
 Widget GoogleMapArea() {
   return GoogleMap(
+    markers: Makingmarker(),
     mapType: MapType.normal,
     initialCameraPosition: _kGooglePlex,
     onMapCreated: (GoogleMapController controller) {

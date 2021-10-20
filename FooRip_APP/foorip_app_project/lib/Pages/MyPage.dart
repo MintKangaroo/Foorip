@@ -25,7 +25,11 @@ class _MyPageState extends State<MyPage> {
       setState(() {
         _selectedIndex = index;
       });
-    } else {
+    }
+    else if (index == 0) {
+      Get.offAllNamed('/MainPage');
+    } 
+    else {
       setState(() {
         _selectedIndex = index;
         Get.toNamed(_children[index]);
