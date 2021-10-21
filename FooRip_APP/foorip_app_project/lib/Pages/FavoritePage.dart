@@ -23,11 +23,9 @@ class _FavoritePageState extends State<FavoritePage> {
       setState(() {
         _selectedIndex = index;
       });
-    }
-    else if (index == 0) {
+    } else if (index == 0) {
       Get.offAllNamed('/MainPage');
-    } 
-     else {
+    } else {
       setState(() {
         _selectedIndex = index;
         Get.toNamed(_children[index]);
@@ -55,9 +53,12 @@ class _FavoritePageState extends State<FavoritePage> {
                 Container(
                   height: 50,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset("assets/images/fooriptextlogo.png",
-                          height: 70),
+                      Container(
+                          child: Image.asset("assets/images/fooriptextlogo.png",
+                              height: 70),
+                          padding: const EdgeInsets.fromLTRB(130, 0, 0, 0)),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                         child: GestureDetector(
@@ -77,7 +78,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 ),
                 SizedBox(height: 20),
                 Container(
-                    width: displayWidth * 0.8,
+                    width: displayWidth * 0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffdfa166).withOpacity(0.4),
                       borderRadius: BorderRadius.circular(5),
@@ -100,105 +101,187 @@ class _FavoritePageState extends State<FavoritePage> {
                       ),
                     )),
                 Container(
+                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  width: displayWidth * 0.9,
                   child: Row(
                     children: [
-                      Text("파스타"),
-                      GestureDetector(
-                        onTap: () {
-                          //TODO: 지워지는 기능 구현
-                        },
-                        child: Icon(Icons.close),
-                      )
+                      Container(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+                            ),
+                            Text("파스타"),
+                            GestureDetector(
+                              onTap: () {
+                                //TODO: 지워지는 기능 구현
+                              },
+                              child: Icon(Icons.close),
+                            )
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xffffdfa166),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+                            ),
+                            Text("양식"),
+                            GestureDetector(
+                              onTap: () {
+                                //TODO: 지워지는 기능 구현
+                              },
+                              child: Icon(Icons.close),
+                            )
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xffffdfa166),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+                            ),
+                            Text("감성"),
+                            GestureDetector(
+                              onTap: () {
+                                //TODO: 지워지는 기능 구현
+                              },
+                              child: Icon(Icons.close),
+                            )
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          color: Color(0xffffdfa166),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
                     ],
                   ),
-                  decoration: BoxDecoration(
-                    color: Color(0xffffdfa166),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
                 ),
+                // SizedBox(
+                //   height: 20,
+                // ),
                 Container(
-                  child: Row(
-                    children: [
-                      Text("양식"),
-                      GestureDetector(
-                        onTap: () {
-                          //TODO: 지워지는 기능 구현
-                        },
-                        child: Icon(Icons.close),
-                      )
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0xffffdfa166),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-                Container(
-                  child: Row(
-                    children: [
-                      Text("감성"),
-                      GestureDetector(
-                        onTap: () {
-                          //TODO: 지워지는 기능 구현
-                        },
-                        child: Icon(Icons.close),
-                      )
-                    ],
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0xffffdfa166),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 300,
+                  // height: 100,
                   width: displayWidth * 0.9,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.orange, width: 3),
-                      borderRadius: BorderRadius.circular(5)),
+                      border: Border.all(color: Colors.orange, width: 2),
+                      borderRadius: BorderRadius.circular(15)),
                   child: Column(
                     children: [
                       Container(
+                        padding: const EdgeInsets.fromLTRB(3, 3, 3, 0),
                         child: Row(
                           children: [
                             Text(
                               "예원 레스토랑",
                               style: TextStyle(
-                                fontSize: 45,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                            Text(
-                              "파스타 전문점",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
                             ),
                             Container(
                               child: Column(
                                 children: [
-                                  Text(
-                                    "좋아요",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.orange),
+                                  SizedBox(
+                                    height: 5,
                                   ),
                                   Text(
-                                    "8932",
+                                    "파스타 전문점",
                                     style: TextStyle(
-                                        fontSize: 15, color: Colors.orange),
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey),
                                   ),
                                 ],
                               ),
                             ),
-                            
+                            Container(
+                              //좋아요랑 아이콘 오른쪽 정렬 안 됨
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    //width: double.infinity,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      //crossAxisAlignment: CrossAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          "좋아요",
+                                          style: TextStyle(
+                                              fontSize: 7,
+                                              color: Colors.orange),
+                                        ),
+                                        Text(
+                                          "8932",
+                                          style: TextStyle(
+                                              fontSize: 7,
+                                              color: Colors.orange),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.favorite,
+                                    size: 25,
+                                    color: Colors.orange,
+                                  ),
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),
+                      Container(
+                        //주소 왼쪽 정렬 해야함 왜 안 됨?
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text(
+                                "서울시 동물의 숲 토도톳도 32-1",
+                                style: TextStyle(fontSize: 10),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Container(
+                                height: 40, width: 55, color: Colors.grey),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(5, 3, 3, 5),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
-                )
+                ),
               ],
             ),
             bottomNavigationBar: BottomNavigationBar(

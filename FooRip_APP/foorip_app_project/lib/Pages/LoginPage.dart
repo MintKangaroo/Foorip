@@ -154,8 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       GestureDetector(
                         onTap: () async {
-                          var serverresponse = ServerContact().LoginContact();
-                          print(await serverresponse);
+                          //var serverresponse = ServerContact().LoginContact();
+                          //print(await serverresponse);
                           MovetoMain();
                         },
                         child: Container(
