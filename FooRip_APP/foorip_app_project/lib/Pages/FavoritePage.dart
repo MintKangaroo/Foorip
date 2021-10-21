@@ -105,72 +105,35 @@ class _FavoritePageState extends State<FavoritePage> {
                   width: displayWidth * 0.9,
                   child: Row(
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                            ),
-                            Text("파스타"),
-                            GestureDetector(
-                              onTap: () {
-                                //TODO: 지워지는 기능 구현
-                              },
-                              child: Icon(Icons.close),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xffffdfa166),
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                      Chip(
+                        label: Text("파스타"),
+                        deleteIcon: Icon(Icons.close),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffdfa166),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 10,
                       ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                            ),
-                            Text("양식"),
-                            GestureDetector(
-                              onTap: () {
-                                //TODO: 지워지는 기능 구현
-                              },
-                              child: Icon(Icons.close),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xffffdfa166),
-                          borderRadius: BorderRadius.circular(3),
-                        ),
+                      Chip(
+                        label: Text("양식"),
+                        deleteIcon: Icon(Icons.close),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffdfa166),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 10,
                       ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                            ),
-                            Text("감성"),
-                            GestureDetector(
-                              onTap: () {
-                                //TODO: 지워지는 기능 구현
-                              },
-                              child: Icon(Icons.close),
-                            )
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          color: Color(0xffffdfa166),
-                          borderRadius: BorderRadius.circular(3),
-                        ),
+                      Chip(
+                        label: Text("감성"),
+                        deleteIcon: Icon(Icons.close),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffdfa166),
                       ),
                       SizedBox(
                         width: 5,
@@ -222,7 +185,6 @@ class _FavoritePageState extends State<FavoritePage> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                        
                                   Container(
                                     //width: double.infinity,
                                     child: Column(
@@ -260,15 +222,15 @@ class _FavoritePageState extends State<FavoritePage> {
                         child: Column(
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children:[ 
-                                Container(
-                                child: Text(
-                                  "서울시 동물의 숲 토도톳도 32-1",
-                                  style: TextStyle(fontSize: 10),
-                                ),
-                              ),]
-                            )
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      "서울시 동물의 숲 토도톳도 32-1",
+                                      style: TextStyle(fontSize: 10),
+                                    ),
+                                  ),
+                                ])
                           ],
                         ),
                       ),
