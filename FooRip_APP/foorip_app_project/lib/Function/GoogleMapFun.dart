@@ -13,6 +13,7 @@ final CameraPosition _kGooglePlex = CameraPosition(
 Set<Marker> Makingmarker() {
   return <Marker>[
     Marker(
+        draggable: false,
         markerId: MarkerId("marker_1"),
         position: LatLng(36.982110, 127.528039),
         infoWindow: InfoWindow(title: "대금고"))

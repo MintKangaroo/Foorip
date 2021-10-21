@@ -216,11 +216,13 @@ class _FavoritePageState extends State<FavoritePage> {
                                 ],
                               ),
                             ),
+                            Spacer(),
                             Container(
                               //좋아요랑 아이콘 오른쪽 정렬 안 됨
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
+                        
                                   Container(
                                     //width: double.infinity,
                                     child: Column(
@@ -255,15 +257,17 @@ class _FavoritePageState extends State<FavoritePage> {
                         ),
                       ),
                       Container(
-                        //주소 왼쪽 정렬 해야함 왜 안 됨?
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              child: Text(
-                                "서울시 동물의 숲 토도톳도 32-1",
-                                style: TextStyle(fontSize: 10),
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children:[ 
+                                Container(
+                                child: Text(
+                                  "서울시 동물의 숲 토도톳도 32-1",
+                                  style: TextStyle(fontSize: 10),
+                                ),
+                              ),]
                             )
                           ],
                         ),
