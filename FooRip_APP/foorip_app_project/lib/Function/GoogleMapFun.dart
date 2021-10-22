@@ -27,7 +27,7 @@ Widget GoogleMapArea() {
     mapType: MapType.normal,
     initialCameraPosition: _kGooglePlex,
     onMapCreated: (GoogleMapController controller) {
-      _controller.complete(controller);
+     // _controller.complete(controller);
     },
   );
 }
