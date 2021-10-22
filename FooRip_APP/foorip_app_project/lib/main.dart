@@ -10,6 +10,7 @@ import 'Pages/MyPage.dart';
 import 'Pages/FavoritePage.dart';
 import 'Pages/StampPage.dart';
 import 'Pages/SendPage.dart';
+import 'Pages/SettingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           GetPage(name: '/FavoritePage', page: () => FavoritePage()),
           GetPage(name: '/StampPage', page: () => StampPage()),
           GetPage(name: '/SendPage', page: () => SendPage()),
+          GetPage(name: '/SettingPage', page: () => SettingPage()),
         ]);
   }
 }
