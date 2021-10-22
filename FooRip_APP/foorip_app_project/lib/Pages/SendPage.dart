@@ -11,7 +11,7 @@ class SendPage extends StatefulWidget {
 class _SendPageState extends State<SendPage> {
   // 보내기 버튼 클릭시 메인 페이지 이동
   void MovetoMain() {
-    Get.off('/SendPage');
+    Get.off('/MainPage');
   }
 
   @override
@@ -66,6 +66,7 @@ class _SendPageState extends State<SendPage> {
                         style: TextStyle(fontSize: 15),
                       ),
                       Container(
+                        color: Color(0xffDADADA5E).withOpacity(0.37),
                         height: 50,
                         width: displayWidth * 0.7,
                       )
@@ -139,6 +140,7 @@ class _SendPageState extends State<SendPage> {
                         Container(
                           height: 50,
                           width: displayWidth * 0.7,
+                          color: Color(0xffDADADA5E).withOpacity(0.37),
                         ),
                       ],
                     ),
@@ -152,6 +154,7 @@ class _SendPageState extends State<SendPage> {
                         ),
                         Container(
                           height: 50,
+                          color: Color(0xffDADADA5E).withOpacity(0.37),
                           width: displayWidth * 0.7,
                         ),
                       ],
@@ -209,7 +212,7 @@ class _SendPageState extends State<SendPage> {
                     child: Container(
                       height: 130,
                       width: displayWidth * 0.9,
-                      color: Colors.grey,
+                      color: Color(0xffDADADA5E).withOpacity(0.37),
                     ),
                   ),
                   GestureDetector(
@@ -217,18 +220,20 @@ class _SendPageState extends State<SendPage> {
                         MovetoMain();
                       },
                       child: Container(
-                        child: Text(
-                          "보내기",
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                        child: Center(
+                          child: Text(
+                            "보내기",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
                         ),
-                        height: 80,
-                        width: displayWidth * 0.5,
+                        height: 50,
+                        width: displayWidth * 0.6,
                         decoration: BoxDecoration(
-                            color: Colors.orange,
-                            borderRadius: BorderRadius.circular(2)),
+                            color: Colors.orange.withOpacity(0.7),
+                            borderRadius: BorderRadius.circular(5)),
                       ))
                 ]))),
       ]),

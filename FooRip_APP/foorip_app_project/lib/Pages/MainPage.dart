@@ -66,24 +66,23 @@ class _MainPageState extends State<MainPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(),
+                      SizedBox(
+                        width: 50,
+                      ),
                       Text(
                         "푸립",
                         style: TextStyle(fontSize: 25),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                        child: GestureDetector(
-                          onTap: () {
-                            MovetoSend();
-                          },
-                          child: Container(
-                            width: 50,
-                            height: 30,
-                            color: Colors.orange,
-                            child: Icon(
-                              Icons.send,
-                            ),
+                      GestureDetector(
+                        onTap: () {
+                          MovetoSend();
+                        },
+                        child: Container(
+                          width: 50,
+                          height: 30,
+                          color: Colors.orange,
+                          child: Icon(
+                            Icons.send,
                           ),
                         ),
                       )
@@ -96,7 +95,7 @@ class _MainPageState extends State<MainPage> {
                     width: displayWidth * 0.8,
                     decoration: BoxDecoration(
                       color: Color(0xffffdfa166).withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(7),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),

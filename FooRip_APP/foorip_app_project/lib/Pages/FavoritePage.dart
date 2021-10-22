@@ -48,146 +48,149 @@ class _FavoritePageState extends State<FavoritePage> {
     var displayHeight = MediaQuery.of(context).size.height;
     return SafeArea(
         child: Scaffold(
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    //로고+보내기버튼
-                    height: displayHeight * 0.08,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                            //로고
-                            child: Image.asset(
-                              "assets/images/fooriptextlogo.png",
-                              height: 80,
-                            ),
-                            padding: const EdgeInsets.fromLTRB(130, 0, 0, 0)),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                          child: GestureDetector(
-                            onTap: () {
-                              MovwtoSend();
-                            },
-                            child: Container(
-                              width: displayWidth * 0.12,
+            body: Column(
+              children: [
+                Container(
+                  //로고+보내기버튼
+                  height: displayHeight * 0.08,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: displayWidth * 0.12,
+                      ),
+                      Container(
+                          //로고
+                          child: Image.asset(
+                            "assets/images/fooriptextlogo.png",
+                            height: 80,
+                          ),
+                          padding: const EdgeInsets.fromLTRB(130, 0, 0, 0)),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                        child: GestureDetector(
+                          onTap: () {
+                            MovwtoSend();
+                          },
+                          child: Container(
+                            width: displayWidth * 0.12,
+                            
+                            decoration: BoxDecoration(
                               color: Color(0xffffFFB969),
-                              //decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                              child: Icon(
-                                Icons.send,
-                                color: Colors.white,
+                              borderRadius: BorderRadius.circular(7)),
+                            child: Icon(
+                              Icons.send,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  //검색창 그룹
+                  height: displayHeight * 0.07,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: displayWidth * 0.8,
+                        decoration: BoxDecoration(
+                          color: Color(0xffffdfa166).withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(7),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                          child: TextFormField(
+                            controller: FilterIDtextController,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: '필터를 선택하세요.',
+                              hintStyle: TextStyle(
+                                  color: Color(0xffffdfa166), fontSize: 18),
+                              suffixIcon: Icon(
+                                Icons.tune,
+                                size: 30,
+                                color: Color(0xffffdfa166),
                               ),
                             ),
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                    ],
                   ),
-                  Container(
-                    //검색창 그룹
-                    height: displayHeight * 0.07,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          //검색창
-                          width: displayWidth * 0.89,
-                          height: displayHeight * 0.06,
-                          decoration: BoxDecoration(
-                            color: Color(0xffffFFB969).withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(80),
-                          ),
-            
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                            child: TextField(
-                              controller: FilterIDtextController,
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: '필터를 선택하세요',
-                                  hintStyle: TextStyle(
-                                      color: Color(0xffffFEC674), fontSize: 15),
-                                  suffixIcon: Icon(
-                                    Icons.tune,
-                                    size: 30,
-                                    color: Color(0xffffFFB969),
-                                  )),
-                            ),
-                          ),
+                ),
+                Container(
+                  //키워드
+                  height: displayHeight * 0.05,
+                  //padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  width: displayWidth * 0.89,
+                  child: Row(
+                    children: [
+                      Chip(
+                        label: Text(
+                          "파스타",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
-                      ],
-                    ),
+                        deleteIcon: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 15,
+                        ),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffFFB969),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Chip(
+                        label: Text(
+                          "양식",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                        deleteIcon: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 15,
+                        ),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffFFB969),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Chip(
+                        label: Text(
+                          "감성",
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                        deleteIcon: Icon(
+                          Icons.close,
+                          color: Colors.white,
+                          size: 15,
+                        ),
+                        onDeleted: () {
+                          //TODO: 지워지는 기능 구현
+                        },
+                        backgroundColor: Color(0xffffFFB969),
+                      ),
+                      SizedBox(
+                        width: 5,
+                      ),
+                    ],
                   ),
-                  Container(
-                    //키워드
-                    height: displayHeight * 0.05,
-                    //padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                    width: displayWidth * 0.89,
-                    child: Row(
-                      children: [
-                        Chip(
-                          label: Text(
-                            "파스타",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                          deleteIcon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                            size: 15,
-                          ),
-                          onDeleted: () {
-                            //TODO: 지워지는 기능 구현
-                          },
-                          backgroundColor: Color(0xffffFFB969),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Chip(
-                          label: Text(
-                            "양식",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                          deleteIcon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                            size: 15,
-                          ),
-                          onDeleted: () {
-                            //TODO: 지워지는 기능 구현
-                          },
-                          backgroundColor: Color(0xffffFFB969),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Chip(
-                          label: Text(
-                            "감성",
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                          deleteIcon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                            size: 15,
-                          ),
-                          onDeleted: () {
-                            //TODO: 지워지는 기능 구현
-                          },
-                          backgroundColor: Color(0xffffFFB969),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SingleChildScrollView(
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
                     //카드
                     child: Column(
                       children: [
@@ -245,7 +248,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                     Container(
                                       //좋아요랑 아이콘 오른쪽 정렬
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Container(
                                             child: Column(
@@ -256,7 +260,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "좋아요",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -264,7 +269,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "8932",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -407,7 +413,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "존맛탱구리~! 여기 명란파스타 맛집임~~!",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -433,7 +440,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "명란 파스타 먹고 땟깔 좋아졌다.",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -457,7 +465,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -527,7 +536,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                     Container(
                                       //좋아요랑 아이콘 오른쪽 정렬
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Container(
                                             child: Column(
@@ -538,7 +548,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "좋아요",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -546,7 +557,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "8932",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -689,7 +701,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "존맛탱구리~! 여기 명란파스타 맛집임~~!",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -715,7 +728,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "명란 파스타 먹고 땟깔 좋아졌다.",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -739,7 +753,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -806,7 +821,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                     Container(
                                       //좋아요랑 아이콘 오른쪽 정렬
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Container(
                                             child: Column(
@@ -817,7 +833,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "좋아요",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -825,7 +842,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "8932",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -968,7 +986,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "존맛탱구리~! 여기 명란파스타 맛집임~~!",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -994,7 +1013,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "명란 파스타 먹고 땟깔 좋아졌다.",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -1018,7 +1038,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -1085,7 +1106,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                     Container(
                                       //좋아요랑 아이콘 오른쪽 정렬
                                       child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
                                         children: [
                                           Container(
                                             child: Column(
@@ -1096,7 +1118,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "좋아요",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -1104,7 +1127,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                   "8932",
                                                   style: TextStyle(
                                                       fontSize: 10,
-                                                      color: Color(0xffffFFB969),
+                                                      color:
+                                                          Color(0xffffFFB969),
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 ),
@@ -1247,7 +1271,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "존맛탱구리~! 여기 명란파스타 맛집임~~!",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -1273,7 +1298,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "명란 파스타 먹고 땟깔 좋아졌다.",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                               Container(
                                                 child: Row(
@@ -1297,7 +1323,8 @@ class _FavoritePageState extends State<FavoritePage> {
                                                 "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
                                                 style: TextStyle(
                                                     fontSize: 9,
-                                                    fontWeight: FontWeight.bold),
+                                                    fontWeight:
+                                                        FontWeight.bold),
                                               ),
                                             ],
                                           ),
@@ -1313,8 +1340,8 @@ class _FavoritePageState extends State<FavoritePage> {
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             bottomNavigationBar: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
