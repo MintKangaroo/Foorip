@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:foorip_app_project/Function/ServerContact.dart';
+import 'dart:developer';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -154,8 +155,10 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       GestureDetector(
                         onTap: () async {
+                          log("LoginPage : ServerContact 함수로 호출 후 Return 받기");
                           //var serverresponse = ServerContact().LoginContact();
                           //print(await serverresponse);
+                          log("LoginPage : 만약 Return 값이 True이면 MainPage로 이동");
                           MovetoMain();
                         },
                         child: Container(

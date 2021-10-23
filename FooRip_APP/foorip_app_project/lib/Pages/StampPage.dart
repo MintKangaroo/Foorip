@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:foorip_app_project/Function/GoogleMapFun.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:foorip_app_project/Function/GoogleMapFun.dart';
+import 'dart:developer';
+
 
 class StampPage extends StatefulWidget {
   const StampPage({ Key? key }) : super(key: key);

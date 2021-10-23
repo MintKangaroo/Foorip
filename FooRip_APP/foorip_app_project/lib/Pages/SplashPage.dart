@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
+import 'dart:developer';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);

@@ -7,6 +7,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'MyPage.dart';
 import 'FavoritePage.dart';
 import 'StampPage.dart';
+import 'dart:developer';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

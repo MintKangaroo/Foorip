@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:developer';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({ Key? key }) : super(key: key);
