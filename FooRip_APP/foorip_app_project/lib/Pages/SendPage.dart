@@ -74,7 +74,7 @@ class _SendPageState extends State<SendPage> {
                               ),
                               Spacer(),
                               Container(
-                                color: Color(0xffDADADA5E).withOpacity(0.37),
+                                color: Colors.grey.withOpacity(0.27),
                                 height: 40,
                                 width: displayWidth * 0.73,
                               )
@@ -98,7 +98,11 @@ class _SendPageState extends State<SendPage> {
                                         //TODO:Chip 위젯으로 변경해주세여!!
                                         Container(
                                           child: Row(children: [
-                                            Text("파스타"),
+                                            Text(
+                                              "파스타",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                             GestureDetector(
                                               onTap: () {
                                                 //TODO: 지워지는 기능 구현
@@ -120,7 +124,11 @@ class _SendPageState extends State<SendPage> {
                                         ),
                                         Container(
                                           child: Row(children: [
-                                            Text("양식"),
+                                            Text(
+                                              "양식",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                             GestureDetector(
                                               onTap: () {
                                                 //TODO: 지워지는 기능 구현
@@ -142,7 +150,11 @@ class _SendPageState extends State<SendPage> {
                                         ),
                                         Container(
                                           child: Row(children: [
-                                            Text("감성"),
+                                            Text(
+                                              "감성",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
                                             GestureDetector(
                                               onTap: () {
                                                 //TODO: 지워지는 기능 구현
@@ -178,7 +190,7 @@ class _SendPageState extends State<SendPage> {
                                 Container(
                                   height: 40,
                                   width: displayWidth * 0.73,
-                                  color: Color(0xffDADADA5E).withOpacity(0.37),
+                                  color: Colors.grey.withOpacity(0.27),
                                 ),
                               ],
                             ),
@@ -196,7 +208,7 @@ class _SendPageState extends State<SendPage> {
                                 ),
                                 Container(
                                   height: 40,
-                                  color: Color(0xffDADADA5E).withOpacity(0.37),
+                                  color: Colors.grey.withOpacity(0.27),
                                   width: displayWidth * 0.73,
                                 ),
                               ],
@@ -216,7 +228,8 @@ class _SendPageState extends State<SendPage> {
                                     },
                                     child: Container(
                                       child: Padding(
-                                        padding: const EdgeInsets.fromLTRB(15.0,8,15,8),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            15.0, 8, 15, 8),
                                         child: Text(
                                           "사진 첨부하기",
                                           style: TextStyle(color: Colors.white),
@@ -272,7 +285,7 @@ class _SendPageState extends State<SendPage> {
                           Container(
                             height: 130,
                             width: displayWidth * 0.9,
-                            color: Color(0xffDADADA5E).withOpacity(0.37),
+                            color: Colors.grey.withOpacity(0.27),
                           ),
                         ],
                       )),
