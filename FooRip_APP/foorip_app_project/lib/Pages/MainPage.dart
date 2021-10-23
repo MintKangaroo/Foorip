@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:async';
-import 'package:foorip_app_project/Function/GoogleMapFun.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'MyPage.dart';
 import 'FavoritePage.dart';
@@ -17,6 +16,33 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  //구글맵에 필요한 변수들 정의
+  //구글맵 controller 초기화
+  Completer<GoogleMapController> _controller = Completer();
+//구글맵 카메라 위치 초기화
+  final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(36.982110, 127.528039),
+    zoom: 14.4746,
+  );
+
+  //구글맵 위에 위젯 보일지 말지 결정
+  var _visible = false;
+
+  Set<Marker> Makingmarker() {
+    return <Marker>[
+      Marker(
+          draggable: false,
+          markerId: MarkerId("marker_1"),
+          position: LatLng(36.982110, 127.528039),
+          // infoWindow: InfoWindow(title: "대금고"),
+          onTap: () {
+            setState(() {
+              _visible = true;
+            });
+          })
+    ].toSet();
+  }
+
   //필터 검색 입력창 변수 정의
   final FilterIDtextController = new TextEditingController();
 
@@ -120,7 +146,52 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            Expanded(child: GoogleMapArea()),
+            Expanded(
+                child: Stack(children: [
+              Positioned.fill(
+                child: GoogleMap(
+                  markers: Makingmarker(),
+                  mapType: MapType.normal,
+                  initialCameraPosition: _kGooglePlex,
+                  onMapCreated: (GoogleMapController controller) {
+                    // _controller.complete(controller);
+                  },
+                ),
+              ),
+              Positioned(
+                bottom: 20,
+                right: 10,
+                left: 10,
+                child: Visibility(
+                  visible: _visible,
+                  child: Container(
+
+                    width: displayWidth *0.5,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Hello World"),
+                            GestureDetector(
+                              onTap: (){
+                                setState(() {
+                                  _visible = false;
+                                });
+                              },
+                              child: Icon(Icons.close))
+                          ],
+                        ),
+                      ],
+                    )),
+                ),
+                )
+            ])),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
