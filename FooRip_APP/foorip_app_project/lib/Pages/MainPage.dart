@@ -177,7 +177,7 @@ class _MainPageState extends State<MainPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Hello World"),
+                            Text("대금고등학교"),
                             GestureDetector(
                               onTap: (){
                                 setState(() {
