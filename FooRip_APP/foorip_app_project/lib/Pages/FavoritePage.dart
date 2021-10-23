@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'dart:developer';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -36,6 +37,8 @@ class _FavoritePageState extends State<FavoritePage> {
   //send아이콘 클릭시 보내기 페이지로 이동
   void MovwtoSend() {
     Get.toNamed('/Sendpage');
+    //디버깅시 오류 발생 위치 Check
+    log("SendPage로 보내기에서 오류 발생");
   }
 
   //필터 검색 입력창 변수 정의
@@ -44,6 +47,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
+    
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     return SafeArea(
