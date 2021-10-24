@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:foorip_app_project/Function/DataSaveCheck.dart';
+import 'package:get/get.dart';
+import 'LoginPage.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({ Key? key }) : super(key: key);
@@ -17,18 +19,23 @@ class _SettingPageState extends State<SettingPage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     
-    return Center(
-      child: Column(
-        children: [
-          Text("로그아웃"),
-          Container(
-            child: GestureDetector(
-              onTap: (){
-                DataSaveCheck.LogOutData();
-              },
-              child: Icon(Icons.settings)),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              Text("로그아웃"),
+              Container(
+                child: GestureDetector(
+                  onTap: (){
+                    DataSaveCheck.LogOutData();
+                    Get.offAll(LoginPage());
+                  },
+                  child: Icon(Icons.settings)),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
