@@ -6,9 +6,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'dart:developer';
 
-
 class StampPage extends StatefulWidget {
-  const StampPage({ Key? key }) : super(key: key);
+  const StampPage({Key? key}) : super(key: key);
 
   @override
   _StampPageState createState() => _StampPageState();
@@ -40,7 +39,6 @@ class _StampPageState extends State<StampPage> {
     ].toSet();
   }
 
-  
   //bottomNavigator 변수 정의
   int _selectedIndex = 3;
   final List _children = [
@@ -55,6 +53,8 @@ class _StampPageState extends State<StampPage> {
       setState(() {
         _selectedIndex = index;
       });
+    } else if (index == 0) {
+      Get.offAllNamed('/MainPage');
     } else {
       setState(() {
         _selectedIndex = index;
@@ -65,15 +65,15 @@ class _StampPageState extends State<StampPage> {
 
   @override
   Widget build(BuildContext context) {
-    
-
     //Display width, height 구하기
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Column(
           children: [
-            Flexible(child: Container(child: GoogleMap(
+            Flexible(
+                child: Container(
+                    child: GoogleMap(
               markers: Makingmarker(),
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
