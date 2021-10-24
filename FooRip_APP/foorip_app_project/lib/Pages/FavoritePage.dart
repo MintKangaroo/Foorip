@@ -769,7 +769,12 @@ class _FavoritePageState extends State<FavoritePage> {
                                 ),
                               )
                             ],
+                            
                           ),
+                          
+                        ),
+                         SizedBox(
+                          height: 5,
                         ),
                         Container(
                           // height:
@@ -1055,6 +1060,9 @@ class _FavoritePageState extends State<FavoritePage> {
                               )
                             ],
                           ),
+                        ),
+                         SizedBox(
+                          height: 5,
                         ),
                         Container(
                           // height:
