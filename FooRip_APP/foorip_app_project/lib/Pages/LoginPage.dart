@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:foorip_app_project/Function/ServerContact.dart';
 import 'dart:developer';
+import 'package:foorip_app_project/Function/DataSaveCheck.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,8 +29,10 @@ class _LoginPageState extends State<LoginPage> {
     Get.toNamed('/RegisterPage');
   }
 
-  //로그인 서버와 연동 함수 정의
+  //로그인 유지 체크하는 변수
+  var DataSaveCheckFun = new UserData();
 
+  //로그인 서버와 연동 함수 정의
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +144,12 @@ class _LoginPageState extends State<LoginPage> {
                                     _isChecked = !_isChecked;
                                   });
                                 }),
-                            Text("로그인을 유지하겠습니까?")
+                            Text(
+                              "로그인을 유지하겠습니까?",
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  fontWeight: FontWeight.bold),
+                            )
                           ],
                         ),
                       ),
@@ -159,16 +167,31 @@ class _LoginPageState extends State<LoginPage> {
                           //var serverresponse = ServerContact().LoginContact();
                           //print(await serverresponse);
                           log("LoginPage : 만약 Return 값이 True이면 MainPage로 이동");
-                          MovetoMain();
+                          //로그인 확인
+                          var response = ServerContact().LoginTestServer(
+                              LoginIDtextController.text,
+                              LoginPWtextController.text);
+                          if (response == "Sucess") {
+                            if(_isChecked == true){
+                            //로그인 유지하기
+                            DataSaveCheckFun.AutoLogin(
+                                LoginIDtextController.text,
+                                LoginPWtextController.text);}
+                            MovetoMain();
+                          } else {
+                            Get.snackbar(
+                              "", "로그인에 실패했습니다",
+                              snackPosition:SnackPosition.BOTTOM);
+                          }
                         },
                         child: Container(
                             width: displayWidth * 0.8,
                             child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                               child: Center(
                                   child: Text("로그인",
                                       style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 25,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold))),
                             ),
@@ -186,10 +209,14 @@ class _LoginPageState extends State<LoginPage> {
                                   MovetoRegister();
                                 },
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Container(
                                       child: Text("회원가입",
                                           style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            letterSpacing: -0.5,
+                                            fontSize: 16,
                                             color: Color(0xffffb969),
                                           ))),
                                 )),
@@ -201,11 +228,15 @@ class _LoginPageState extends State<LoginPage> {
                             GestureDetector(
                                 onTap: () {},
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Container(
                                       child: Text(
                                     "아이디 찾기",
                                     style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: -0.5,
+                                      fontSize: 16,
                                       color: Color(0xffffb969),
                                     ),
                                   )),
@@ -218,11 +249,15 @@ class _LoginPageState extends State<LoginPage> {
                             GestureDetector(
                                 onTap: () {},
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                   child: Container(
                                       child: Text(
                                     "비밀번호 찾기",
                                     style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: -0.5,
+                                      fontSize: 16,
                                       color: Color(0xffffb969),
                                     ),
                                   )),
