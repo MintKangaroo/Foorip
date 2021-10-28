@@ -74,11 +74,20 @@ class _StampPageState extends State<StampPage> {
             Flexible(
                 child: Container(
                     child: GoogleMap(
+              zoomControlsEnabled: false,
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
+              zoomGesturesEnabled: true,
+              tiltGesturesEnabled: false,
+              rotateGesturesEnabled: false,
               markers: Makingmarker(),
               mapType: MapType.normal,
               initialCameraPosition: _kGooglePlex,
               onMapCreated: (GoogleMapController controller) {
                 // _controller.complete(controller);
+              },
+              onCameraMove: (CameraPosition cameraPosition) {
+                print(cameraPosition.zoom);
               },
             )))
           ],
