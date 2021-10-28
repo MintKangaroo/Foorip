@@ -7,7 +7,7 @@ import 'MyPage.dart';
 import 'FavoritePage.dart';
 import 'StampPage.dart';
 import 'dart:developer';
-import 'package:geolocator/geolocator.dart';
+
 
 
 class MainPage extends StatefulWidget {
@@ -44,6 +44,8 @@ class _MainPageState extends State<MainPage> {
           })
     ].toSet();
   }
+  
+  
 
   
 
