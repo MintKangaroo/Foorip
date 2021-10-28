@@ -71,98 +71,109 @@ class _FoodInformationPageState extends State<FoodInformationPage> {
               child: SingleChildScrollView(
                 child: Row(
                   children: [
-                      Container(
-                          child: Column(children[
-                            Container(
-                      height: displayHeight * 0.08,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            "캥거루 고깃집",
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "캥거루 고기 전문점",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.grey),
-                          )
-                        ],
-                      ),
-                    ),
                     Container(
-                      height: displayHeight * 0.17,
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                  size: 20,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                  size: 20,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                  size: 20,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  color: Colors.orange,
-                                  size: 20,
-                                ),
-                                Icon(
-                                  Icons.star_border_outlined,
-                                  color: Colors.orange,
-                                  size: 20,
-                                ),
-                                Text(
-                                  "좋아요",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: Color(0xffffFFB969),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text(
-                                  "8932",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: Color(0xffffFFB969),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
+                        child: Column(
+                      children: [
+                        Container(
+                          height: displayHeight * 0.08,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                "캥거루 고깃집",
+                                style: TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "캥거루 고기 전문점",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey),
+                              )
+                            ],
                           ),
-                          Text("위치:서울시 동물의숲 켕케도섬 44-4",
-                              style: TextStyle(fontSize: 15),
-                              color: Colors.grey),
-                          SizedBox(
-                            height: 10,
+                        ),
+                        Container(
+                          height: displayHeight * 0.17,
+                          child: Column(
+                            children: [
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 20,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 20,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 20,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.orange,
+                                      size: 20,
+                                    ),
+                                    Icon(
+                                      Icons.star_border_outlined,
+                                      color: Colors.orange,
+                                      size: 20,
+                                    ),
+                                    Text(
+                                      "좋아요",
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Color(0xffffFFB969),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "8932",
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          color: Color(0xffffFFB969),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Text(
+                                "위치:서울시 동물의숲 켕케도섬 44-4",
+                                style:
+                                    TextStyle(fontSize: 15, color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "영업시간:매주 금요일 휴업",
+                                style:
+                                    TextStyle(fontSize: 15, color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Tel.010-4484-4444",
+                                style:
+                                    TextStyle(fontSize: 15, color: Colors.grey),
+                              ),
+                            ],
                           ),
-                          Text("영업시간:매주 금요일 휴업",
-                              style: TextStyle(fontSize: 15),
-                              color: Colors.grey),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text("Tel.010-4484-4444",
-                              style: TextStyle(fontSize: 15),
-                              color: Colors.grey),
-                        ],
-                      ),
-                    )])
-                      )
-                    
+                        )
+                      ],
+                    )),
+                    Container(//이미지 넣음 됨
+
+                    )
                   ],
+                  
                 ),
               ),
             )
