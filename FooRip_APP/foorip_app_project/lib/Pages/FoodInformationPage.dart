@@ -69,7 +69,7 @@ class _FoodInformationPageState extends State<FoodInformationPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
+          
                 child: Row(
                   children: [
                     Container(

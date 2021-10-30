@@ -153,7 +153,6 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     height: 150,
                     child: ListView.builder(
-                        physics: ClampingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: 5,
                         scrollDirection: Axis.horizontal,
