@@ -127,10 +127,11 @@ class _HomePageState extends State<HomePage> {
             Expanded(
                 child: Stack(children: [
               GoogleMap(
-                zoomControlsEnabled: true,
+                mapToolbarEnabled: false,
+                zoomControlsEnabled: false,
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
-                zoomGesturesEnabled: false,
+                zoomGesturesEnabled: true,
                 tiltGesturesEnabled: false,
                 rotateGesturesEnabled: false,
                 markers: Makingmarker(),
@@ -152,6 +153,7 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     height: 150,
                     child: ListView.builder(
+                        physics: ClampingScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: 5,
                         scrollDirection: Axis.horizontal,
@@ -164,348 +166,354 @@ class _HomePageState extends State<HomePage> {
                                   decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(20)),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          height: 150,
-                                          width: displayWidth * 0.9,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: Color(0xffffFFB969),
-                                                  width: 2),
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Container(
-                                                //padding: const EdgeInsets.fromLTRB(8, 5, 2, 0),
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 8,
-                                                    ),
-                                                    Center(
-                                                      child: Container(
-                                                        child: Text(
-                                                          "예원 레스토랑",
-                                                          style: TextStyle(
-                                                            fontSize: 18,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 150,
+                                        width: displayWidth * 0.9,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color: Color(0xffffFFB969),
+                                                width: 2),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Column(
+                                          children: [
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Container(
+                                              //padding: const EdgeInsets.fromLTRB(8, 5, 2, 0),
+                                              child: Row(
+                                                children: [
+                                                  SizedBox(
+                                                    width: 8,
+                                                  ),
+                                                  Center(
+                                                    child: Container(
+                                                      child: Text(
+                                                        "예원 레스토랑",
+                                                        style: TextStyle(
+                                                          fontSize: 18,
+                                                          fontWeight:
+                                                              FontWeight.bold,
                                                         ),
                                                       ),
                                                     ),
-                                                    Center(
-                                                      child: Container(
-                                                        //padding:
-                                                        // const EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                                        child: Column(
+                                                  ),
+                                                  Center(
+                                                    child: Container(
+                                                      //padding:
+                                                      // const EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                                      child: Column(
+                                                        children: [
+                                                          SizedBox(
+                                                            height: 8,
+                                                          ),
+                                                          Text(
+                                                            "파스타 전문점",
+                                                            style: TextStyle(
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                color: Colors
+                                                                    .grey),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Spacer(),
+                                                  Container(
+                                                    //좋아요랑 아이콘 오른쪽 정렬
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Container(
+                                                          child: Column(
+                                                            // crossAxisAlignment:
+                                                            //     CrossAxisAlignment.end,
+                                                            children: [
+                                                              Text(
+                                                                "좋아요",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10,
+                                                                    color: Color(
+                                                                        0xffffFFB969),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                              Text(
+                                                                "8932",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        10,
+                                                                    color: Color(
+                                                                        0xffffFFB969),
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Icon(
+                                                          Icons.favorite,
+                                                          size: 20,
+                                                          color: Color(
+                                                              0xffffFFB969),
+                                                        ),
+                                                        SizedBox(
+                                                          width: 8,
+                                                        ),
+                                                        GestureDetector(
+                                                            onTap: () {
+                                                              setState(() {
+                                                                _visible =
+                                                                    false;
+                                                              });
+                                                            },
+                                                            child: Icon(
+                                                                Icons.close))
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              // padding: const EdgeInsets.fromLTRB(8, 0, 0, 2),
+                                              child: Column(
+                                                children: [
+                                                  Row(
+                                                      // mainAxisAlignment:
+                                                      //     MainAxisAlignment.start,
+                                                      children: [
+                                                        SizedBox(
+                                                          width: 8,
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            "서울시 동물의 숲 토도톳도 32-1",
+                                                            style: TextStyle(
+                                                                fontSize: 10,
+                                                                color: Colors
+                                                                    .black,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                        ),
+                                                      ])
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              height: displayHeight * 0.11,
+                                              width: displayWidth * 0.95,
+                                              //padding: const EdgeInsets.fromLTRB(8, 3, 3, 8),
+                                              child: Row(
+                                                children: [
+                                                  SizedBox(
+                                                    width: 8,
+                                                  ),
+                                                  Container(
+                                                    //이미지
+                                                    child: Column(
+                                                      children: [
+                                                        SizedBox(
+                                                          height: 6,
+                                                        ),
+                                                        Container(
+                                                            height:
+                                                                displayHeight *
+                                                                    0.1,
+                                                            width:
+                                                                displayWidth *
+                                                                    0.38,
+                                                            color: Colors.grey),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  //Padding(padding: const EdgeInsets.fromLTRB(8, 3, 3, 8),),
+                                                  Container(
+                                                      child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Container(
+                                                        child: Row(
+                                                          //mainAxisAlignment:
+                                                          // MainAxisAlignment.start,
                                                           children: [
-                                                            SizedBox(
-                                                              height: 8,
+                                                            Icon(
+                                                              Icons.star,
+                                                              color:
+                                                                  Colors.orange,
+                                                              size: 20,
                                                             ),
-                                                            Text(
-                                                              "파스타 전문점",
-                                                              style: TextStyle(
-                                                                  fontSize: 10,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  color:
-                                                                      Colors.grey),
+                                                            Icon(
+                                                              Icons.star,
+                                                              color:
+                                                                  Colors.orange,
+                                                              size: 20,
+                                                            ),
+                                                            Icon(
+                                                              Icons.star,
+                                                              color:
+                                                                  Colors.orange,
+                                                              size: 20,
+                                                            ),
+                                                            Icon(
+                                                              Icons.star,
+                                                              color:
+                                                                  Colors.orange,
+                                                              size: 20,
+                                                            ),
+                                                            Icon(
+                                                              Icons
+                                                                  .star_border_outlined,
+                                                              color:
+                                                                  Colors.orange,
+                                                              size: 20,
                                                             ),
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
-                                                    Spacer(),
-                                                    Container(
-                                                      //좋아요랑 아이콘 오른쪽 정렬
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment.end,
-                                                        children: [
-                                                          Container(
-                                                            child: Column(
-                                                              // crossAxisAlignment:
-                                                              //     CrossAxisAlignment.end,
-                                                              children: [
-                                                                Text(
-                                                                  "좋아요",
-                                                                  style: TextStyle(
-                                                                      fontSize: 10,
-                                                                      color: Color(
-                                                                          0xffffFFB969),
+                                                      Container(
+                                                        // height: displayHeight*0.05,
+                                                        //width: displayWidth*0.54,
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Container(
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons
+                                                                        .military_tech,
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    size: 10,
+                                                                  ),
+                                                                  Text(
+                                                                    "튀어나와룔",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          9,
+                                                                      color: Colors
+                                                                          .black,
                                                                       fontWeight:
                                                                           FontWeight
-                                                                              .bold),
-                                                                ),
-                                                                Text(
-                                                                  "8932",
-                                                                  style: TextStyle(
-                                                                      fontSize: 10,
-                                                                      color: Color(
-                                                                          0xffffFFB969),
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold),
-                                                                ),
-                                                              ],
+                                                                              .bold,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
                                                             ),
-                                                          ),
-                                                          Icon(
-                                                            Icons.favorite,
-                                                            size: 20,
-                                                            color:
-                                                                Color(0xffffFFB969),
-                                                          ),
-                                                          SizedBox(
-                                                            width: 8,
-                                                          ),
-                                                          GestureDetector(
-                                                              onTap: () {
-                                                                setState(() {
-                                                                  _visible = false;
-                                                                });
-                                                              },
-                                                              child:
-                                                                  Icon(Icons.close))
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                // padding: const EdgeInsets.fromLTRB(8, 0, 0, 2),
-                                                child: Column(
-                                                  children: [
-                                                    Row(
-                                                        // mainAxisAlignment:
-                                                        //     MainAxisAlignment.start,
-                                                        children: [
-                                                          SizedBox(
-                                                            width: 8,
-                                                          ),
-                                                          Container(
-                                                            child: Text(
-                                                              "서울시 동물의 숲 토도톳도 32-1",
+                                                            Text(
+                                                              "존맛탱구리~! 여기 명란파스타 맛집임~~!",
                                                               style: TextStyle(
-                                                                  fontSize: 10,
-                                                                  color:
-                                                                      Colors.black,
+                                                                  fontSize: 9,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold),
                                                             ),
-                                                          ),
-                                                        ])
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                height: displayHeight * 0.11,
-                                                width: displayWidth * 0.95,
-                                                //padding: const EdgeInsets.fromLTRB(8, 3, 3, 8),
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(
-                                                      width: 8,
-                                                    ),
-                                                    Container(
-                                                      //이미지
-                                                      child: Column(
-                                                        children: [
-                                                          SizedBox(
-                                                            height: 6,
-                                                          ),
-                                                          Container(
-                                                              height:
-                                                                  displayHeight *
-                                                                      0.1,
-                                                              width: displayWidth *
-                                                                  0.38,
-                                                              color: Colors.grey),
-                                                        ],
+                                                            Container(
+                                                              child: Row(
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons
+                                                                        .military_tech,
+                                                                    color: Colors
+                                                                        .green,
+                                                                    size: 10,
+                                                                  ),
+                                                                  Text(
+                                                                    "땟깔좋은 귀신이 될거얌",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontSize:
+                                                                          9,
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              "명란 파스타 먹고 땟깔 좋아졌다.",
+                                                              style: TextStyle(
+                                                                  fontSize: 9,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            ),
+                                                            Container(
+                                                              child: Row(
+                                                                children: [
+                                                                  Icon(
+                                                                    Icons
+                                                                        .military_tech,
+                                                                    color: Colors
+                                                                        .blue,
+                                                                    size: 10,
+                                                                  ),
+                                                                  Text("리카르도",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            9,
+                                                                        color: Colors
+                                                                            .black,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                      ))
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
+                                                              style: TextStyle(
+                                                                  fontSize: 9,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                    //Padding(padding: const EdgeInsets.fromLTRB(8, 3, 3, 8),),
-                                                    Container(
-                                                        child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment.start,
-                                                      children: [
-                                                        Container(
-                                                          child: Row(
-                                                            //mainAxisAlignment:
-                                                            // MainAxisAlignment.start,
-                                                            children: [
-                                                              Icon(
-                                                                Icons.star,
-                                                                color:
-                                                                    Colors.orange,
-                                                                size: 20,
-                                                              ),
-                                                              Icon(
-                                                                Icons.star,
-                                                                color:
-                                                                    Colors.orange,
-                                                                size: 20,
-                                                              ),
-                                                              Icon(
-                                                                Icons.star,
-                                                                color:
-                                                                    Colors.orange,
-                                                                size: 20,
-                                                              ),
-                                                              Icon(
-                                                                Icons.star,
-                                                                color:
-                                                                    Colors.orange,
-                                                                size: 20,
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .star_border_outlined,
-                                                                color:
-                                                                    Colors.orange,
-                                                                size: 20,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          // height: displayHeight*0.05,
-                                                          //width: displayWidth*0.54,
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                child: Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Icon(
-                                                                      Icons
-                                                                          .military_tech,
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      size: 10,
-                                                                    ),
-                                                                    Text(
-                                                                      "튀어나와룔",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize: 9,
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "존맛탱구리~! 여기 명란파스타 맛집임~~!",
-                                                                style: TextStyle(
-                                                                    fontSize: 9,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
-                                                              Container(
-                                                                child: Row(
-                                                                  children: [
-                                                                    Icon(
-                                                                      Icons
-                                                                          .military_tech,
-                                                                      color: Colors
-                                                                          .green,
-                                                                      size: 10,
-                                                                    ),
-                                                                    Text(
-                                                                      "땟깔좋은 귀신이 될거얌",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize: 9,
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .bold,
-                                                                      ),
-                                                                    )
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "명란 파스타 먹고 땟깔 좋아졌다.",
-                                                                style: TextStyle(
-                                                                    fontSize: 9,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
-                                                              Container(
-                                                                child: Row(
-                                                                  children: [
-                                                                    Icon(
-                                                                      Icons
-                                                                          .military_tech,
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      size: 10,
-                                                                    ),
-                                                                    Text("리카르도",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              9,
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight:
-                                                                              FontWeight
-                                                                                  .bold,
-                                                                        ))
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Text(
-                                                                "가게 안에 고슴도치 존.귀.💝💕💗💖💞",
-                                                                style: TextStyle(
-                                                                    fontSize: 9,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ))
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                                    ],
+                                                  ))
+                                                ],
+                                              ),
+                                            )
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   )),
-                                  SizedBox(width: 10,)
+                              SizedBox(
+                                width: 10,
+                              )
                             ],
                           );
                         }),
