@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
-import 'package:foorip_app_project/Function/RegisterCheck.dart';
 
 
 class RegisterPage extends StatefulWidget {
@@ -17,16 +16,10 @@ class _RegisterPageState extends State<RegisterPage> {
   void MovetoMain() {
     Get.offAndToNamed('/MainPage');
   }
-  var RegisterPage_RegisterCheck = new RegisterCheck();
-
-  final UserEmail = new TextEditingController();
 
   void MovetoLogin() {
     Get.toNamed('/LoginPage');
   }
-
-  FocusNode _emailFocus = new FocusNode();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +69,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                     children: [
                       Form(
-                        key: formKey,
                           child: Column(
                         children: [
                           SizedBox(
@@ -88,12 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               color: Color(0xffffdfa166).withOpacity(0.4),
                               borderRadius: BorderRadius.circular(3),
                             ),
-                            child: TextFormField(
-                              keyboardType: TextInputType.emailAddress,
-                              focusNode:_emailFocus,
-                              controller: UserEmail,
-                              obscureText: true,
-                              validator: (value) => RegisterPage_RegisterCheck.RegisterEmailCheck(_emailFocus, value!),
+                            child: TextField(
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -102,7 +89,6 @@ class _RegisterPageState extends State<RegisterPage> {
                                   color: Color(0xffffdfa166),
                                   fontSize: 18,
                                 ),
-                               
                                 prefixIcon: Icon(
                                   Icons.mail_outline,
                                   size: 30,
@@ -179,7 +165,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                          
                             MovetoLogin();
                           },
                           child: Container(

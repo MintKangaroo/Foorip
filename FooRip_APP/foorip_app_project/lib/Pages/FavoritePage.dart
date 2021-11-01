@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
 
-
-
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
 
@@ -11,10 +9,8 @@ class FavoritePage extends StatefulWidget {
   _FavoritePageState createState() => _FavoritePageState();
 }
 
-
-
 class _FavoritePageState extends State<FavoritePage> {
-
+  
 
   //send아이콘 클릭시 보내기 페이지로 이동
   void MovwtoSend() {
@@ -469,8 +465,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                 ],
                               ),
                             ),
-                            SizedBox(height: 10,),
-                            
+                            SizedBox(height: 10,)
                           ],
                         ),
                       ]
@@ -481,4 +476,3 @@ class _FavoritePageState extends State<FavoritePage> {
             ));
   }
 }
-
