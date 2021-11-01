@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
+import 'package:foorip_app_project/Function/RegisterCheck.dart';
 
 
 class RegisterPage extends StatefulWidget {
@@ -16,6 +17,9 @@ class _RegisterPageState extends State<RegisterPage> {
   void MovetoMain() {
     Get.offAndToNamed('/MainPage');
   }
+  var RegisterPage_RegisterCheck = new RegisterCheck();
+
+  final UserEmail = new TextEditingController();
 
   void MovetoLogin() {
     Get.toNamed('/LoginPage');
@@ -81,6 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               borderRadius: BorderRadius.circular(3),
                             ),
                             child: TextField(
+                              controller: UserEmail,
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -165,6 +170,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            var Resert = RegisterPage_RegisterCheck.RegisterEmailCheck(UserEmail.text);
+                            print(Resert);
                             MovetoLogin();
                           },
                           child: Container(
