@@ -25,6 +25,9 @@ class _RegisterPageState extends State<RegisterPage> {
     Get.toNamed('/LoginPage');
   }
 
+  FocusNode _emailFocus = new FocusNode();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
@@ -73,6 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                     children: [
                       Form(
+                        key: formKey,
                           child: Column(
                         children: [
                           SizedBox(
@@ -84,8 +88,12 @@ class _RegisterPageState extends State<RegisterPage> {
                               color: Color(0xffffdfa166).withOpacity(0.4),
                               borderRadius: BorderRadius.circular(3),
                             ),
-                            child: TextField(
+                            child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
+                              focusNode:_emailFocus,
                               controller: UserEmail,
+                              obscureText: true,
+                              validator: (value) => RegisterPage_RegisterCheck.RegisterEmailCheck(_emailFocus, value!),
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -94,6 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   color: Color(0xffffdfa166),
                                   fontSize: 18,
                                 ),
+                               
                                 prefixIcon: Icon(
                                   Icons.mail_outline,
                                   size: 30,
@@ -170,8 +179,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            var Resert = RegisterPage_RegisterCheck.RegisterEmailCheck(UserEmail.text);
-                            print(Resert);
+                          
                             MovetoLogin();
                           },
                           child: Container(
