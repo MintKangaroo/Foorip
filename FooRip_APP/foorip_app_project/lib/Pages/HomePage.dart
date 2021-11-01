@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() async {              
     _currentLocation = await getLocation();
     super.initState();
-    _currentLocation = await getLocation();
+   
   }
   //구글맵에 필요한 변수들 정의
   //구글맵 controller 초기화
