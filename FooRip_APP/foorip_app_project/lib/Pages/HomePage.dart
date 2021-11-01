@@ -7,23 +7,32 @@ import 'MyPage.dart';
 import 'FavoritePage.dart';
 import 'StampPage.dart';
 import 'dart:developer';
+import 'package:geolocator/geolocator.dart';
+
+
+var _currentLocation = LatLng(36.982110, 127.528039);
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState()  => _HomePageState();
+    
 }
 
+
 class _HomePageState extends State<HomePage> {
+
+  @override
+  void initState() async {              
+    _currentLocation = await getLocation();
+    super.initState();
+    _currentLocation = await getLocation();
+  }
   //구글맵에 필요한 변수들 정의
   //구글맵 controller 초기화
   Completer<GoogleMapController> _controller = Completer();
-//구글맵 카메라 위치 초기화
-  final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(36.982110, 127.528039),
-    zoom: 14.4746,
-  );
+
 
   //구글맵 위에 위젯 보일지 말지 결정
   var _visible = false;
@@ -136,12 +145,15 @@ class _HomePageState extends State<HomePage> {
                 rotateGesturesEnabled: false,
                 markers: Makingmarker(),
                 mapType: MapType.normal,
-                initialCameraPosition: _kGooglePlex,
+                initialCameraPosition: CameraPosition(
+                  target: _currentLocation,
+                  zoom: 14),
                 onMapCreated: (GoogleMapController controller) {
-                  // _controller.complete(controller);
+                  
                 },
                 onCameraMove: (CameraPosition cameraPosition) {
                   print(cameraPosition.zoom);
+                  print(cameraPosition.target);
                 },
               ),
               Positioned(
@@ -526,3 +538,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+//현재 위치 구하기
+Future<LatLng> getLocation() async {
+  Position position =
+      await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  print(position);
+  _currentLocation = LatLng(position.latitude, position.altitude);
+  return _currentLocation;
+}
+
+

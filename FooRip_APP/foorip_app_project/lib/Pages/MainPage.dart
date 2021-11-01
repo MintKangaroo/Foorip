@@ -9,6 +9,7 @@ import 'StampPage.dart';
 import 'dart:developer';
 import 'HomePage.dart';
 
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -33,6 +34,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +43,7 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         currentIndex: _selectedIndex,
-        onTap: (_onItemTapped),
+        onTap: (_onItemTapped){},
         showUnselectedLabels: false,
         selectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[

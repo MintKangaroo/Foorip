@@ -12,7 +12,9 @@ import 'Pages/StampPage.dart';
 import 'Pages/SendPage.dart';
 import 'Pages/SettingPage.dart';
 
+
 void main() {
+
   runApp(MyApp());
 }
 
