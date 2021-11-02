@@ -7,6 +7,8 @@ import 'MyPage.dart';
 import 'FavoritePage.dart';
 import 'StampPage.dart';
 import 'dart:developer';
+import 'package:location/location.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,11 +21,33 @@ class _HomePageState extends State<HomePage> {
   //구글맵에 필요한 변수들 정의
   //구글맵 controller 초기화
   Completer<GoogleMapController> _controller = Completer();
-//구글맵 카메라 위치 초기화
-  final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(36.982110, 127.528039),
-    zoom: 14.4746,
-  );
+
+  double lat = 0;
+  double lot = 0;
+
+
+  @override
+  void initState() {
+    super.initState();
+    getLocation();
+  }
+
+  //현재 위치를 찾는 함수
+  Future<void> getLocation() async {
+    final position = await Location().getLocation();
+    lat = position.latitude!;
+    lot = position.longitude!;
+    print(lat);
+    print(lot);
+    setState(() {
+      lat = position.latitude!;
+      lot = position.longitude!;
+      
+    });
+    
+  }
+
+
 
   //구글맵 위에 위젯 보일지 말지 결정
   var _visible = false;
@@ -33,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       Marker(
           draggable: false,
           markerId: MarkerId("marker_1"),
-          position: LatLng(36.982110, 127.528039),
+          position: LatLng(37.686349799999995, 127.842057),
           // infoWindow: InfoWindow(title: "대금고"),
           onTap: () {
             setState(() {
@@ -56,6 +80,14 @@ class _HomePageState extends State<HomePage> {
     //Display width, height 구하기
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
+
+
+
+    //구글맵 카메라 위치 초기화
+    final CameraPosition _kGooglePlex = CameraPosition(
+      target: LatLng(lat, lot),
+      zoom: 14.4746,
+    );
 
     return SafeArea(
       child: Scaffold(
@@ -138,10 +170,15 @@ class _HomePageState extends State<HomePage> {
                 mapType: MapType.normal,
                 initialCameraPosition: _kGooglePlex,
                 onMapCreated: (GoogleMapController controller) {
+                  controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+                    target: LatLng(lat, lot),
+                    zoom: 14.4746,
+                  )));
                   // _controller.complete(controller);
                 },
                 onCameraMove: (CameraPosition cameraPosition) {
                   print(cameraPosition.zoom);
+                  print(cameraPosition.target);
                 },
               ),
               Positioned(

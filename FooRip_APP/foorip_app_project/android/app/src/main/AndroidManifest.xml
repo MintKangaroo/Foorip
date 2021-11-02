@@ -42,5 +42,8 @@
             android:value="2" />
         <!--구글맵 API 추가-->
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDOiEl5sZAtLXi10b3SP5Rf5gwS7EEWk44"/>
+        <meta-data 
+            android:name="com.google.android.gms.ads.APPLICATION_ID" 
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 </manifest>

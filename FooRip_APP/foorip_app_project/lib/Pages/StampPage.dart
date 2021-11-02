@@ -39,37 +39,36 @@ class _StampPageState extends State<StampPage> {
     ].toSet();
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Column(
-          children: [
-            Flexible(
-                child: Container(
-                    child: GoogleMap(
-              zoomControlsEnabled: false,
-              myLocationEnabled: true,
-              myLocationButtonEnabled: true,
-              zoomGesturesEnabled: true,
-              tiltGesturesEnabled: false,
-              rotateGesturesEnabled: false,
-              markers: Makingmarker(),
-              mapType: MapType.normal,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                // _controller.complete(controller);
-              },
-              onCameraMove: (CameraPosition cameraPosition) {
-                print(cameraPosition.zoom);
-              },
-            )))
-          ],
-        ),
-        );
+      body: Column(
+        children: [
+          Flexible(
+              child: Container(
+                  child: GoogleMap(
+            zoomControlsEnabled: false,
+            myLocationEnabled: true,
+            myLocationButtonEnabled: true,
+            zoomGesturesEnabled: true,
+            tiltGesturesEnabled: false,
+            rotateGesturesEnabled: false,
+            markers: Makingmarker(),
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              // _controller.complete(controller);
+            },
+            onCameraMove: (CameraPosition cameraPosition) {
+              print(cameraPosition.zoom);
+              print(cameraPosition.target);
+            },
+          )))
+        ],
+      ),
+    );
   }
 }
