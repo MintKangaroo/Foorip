@@ -33,7 +33,6 @@ class _HomePageState extends State<HomePage> {
 
   //현재 위치를 찾는 함수
   Future<void> getLocation() async {
-    if (CheckLocationPermission() == "good") {
       final position = await Location().getLocation();
       lat = position.latitude!;
       lot = position.longitude!;
@@ -43,9 +42,7 @@ class _HomePageState extends State<HomePage> {
         lat = position.latitude!;
         lot = position.longitude!;
       });
-    } else {
-      log("지도 권한 불러오기 오류");
-    }
+
   }
 
   //구글맵 위에 위젯 보일지 말지 결정
@@ -88,7 +85,7 @@ class _HomePageState extends State<HomePage> {
     //구글맵 카메라 위치 초기화
     final CameraPosition _kGooglePlex = CameraPosition(
       target: LatLng(lat, lot),
-      zoom: 14.4746,
+      zoom: 15.5,
     );
 
     return SafeArea(
@@ -178,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                   controller.animateCamera(
                       CameraUpdate.newCameraPosition(CameraPosition(
                     target: LatLng(lat, lot),
-                    zoom: 14.4746,
+                    zoom: 15.5,
                   )));
                   // _controller.complete(controller);
                 },
@@ -574,30 +571,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-CheckLocationPermission() async {
-  Location location = new Location();
-
-  bool _serviceEnabled;
-  PermissionStatus _permissionGranted;
-  LocationData _locationData;
-
-  _serviceEnabled = await location.serviceEnabled();
-  if (!_serviceEnabled) {
-    _serviceEnabled = await location.requestService();
-    if (!_serviceEnabled) {
-      return;
-    }
-  }
-
-  _permissionGranted = await location.hasPermission();
-  if (_permissionGranted == PermissionStatus.denied) {
-    _permissionGranted = await location.requestPermission();
-    if (_permissionGranted != PermissionStatus.granted) {
-      return;
-    }
-  }
-
-  return "good";
 }
