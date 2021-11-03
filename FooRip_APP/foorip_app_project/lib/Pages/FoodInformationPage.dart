@@ -69,7 +69,6 @@ class _FoodInformationPageState extends State<FoodInformationPage> {
             ),
             Expanded(
               child: SingleChildScrollView(
-          
                 child: Row(
                   children: [
                     Container(
@@ -172,9 +171,8 @@ class _FoodInformationPageState extends State<FoodInformationPage> {
                     )),
                     Container(//이미지 넣음 됨
 
-                    )
+                        )
                   ],
-                  
                 ),
               ),
             )

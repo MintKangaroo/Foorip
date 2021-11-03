@@ -3,7 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
 
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
 
@@ -65,7 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Container(
                   //3
-                 
+
                   child: Column(
                     children: [
                       Form(
@@ -162,49 +161,47 @@ class _RegisterPageState extends State<RegisterPage> {
                     //5
 
                     child: Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            MovetoLogin();
-                          },
-                          child: Container(
-                            height: 70,
-                            width: 290,
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                              child: Center(
-                                child: Text(
-                                  "가입하기",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        MovetoLogin();
+                      },
+                      child: Container(
+                        height: 70,
+                        width: 290,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                          child: Center(
+                            child: Text(
+                              "가입하기",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            color: Color(0xffffb969),
                           ),
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          width: 300,
-                          height: 5,
-                          color: Color(0xffffb969),
-                        ),
-                      ],
-                    )),
+                        color: Color(0xffffb969),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      width: 300,
+                      height: 5,
+                      color: Color(0xffffb969),
+                    ),
+                  ],
+                )),
                 Container(
                   //6
                   height: 50,
                   child: SizedBox(),
                 ),
-                SizedBox(
-                  height: 50
-                ),
-                  //7
-                ],
+                SizedBox(height: 50),
+                //7
+              ],
             ),
           ),
         ),

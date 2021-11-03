@@ -35,6 +35,11 @@ dependencies:
   shared_preferences: ^2.0.6
   location: ^4.3.0
   google_mobile_ads: ^0.13.5
+  flutter_launcher_name: ^0.0.1
+  
+
+flutter_launcher_name:
+  name : "푸립"
 
 
 dev_dependencies:

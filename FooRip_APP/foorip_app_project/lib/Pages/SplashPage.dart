@@ -13,7 +13,7 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   String NextPage = "";
-  
+
   @override
   void initState() {
     super.initState();
@@ -41,7 +41,6 @@ class _SplashPageState extends State<SplashPage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
 
-
     if (NextPage == "main") {
       Timer(Duration(seconds: 2), () => Get.offAndToNamed('/MainPage'));
     } else if (NextPage == "login") {
@@ -52,7 +51,10 @@ class _SplashPageState extends State<SplashPage> {
 
     return Scaffold(
       body: (Center(
-        child: Image.asset("assets/images/fooriplogo.png",width: 100,),
+        child: Image.asset(
+          "assets/images/fooriplogo.png",
+          width: 100,
+        ),
       )),
     );
   }

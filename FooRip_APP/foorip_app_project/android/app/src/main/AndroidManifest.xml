@@ -4,8 +4,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
    <application
-        android:label="foorip_app_project"
-        android:icon="@mipmap/ic_launcher">
+        android:label="푸립"
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true" >
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

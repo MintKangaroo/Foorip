@@ -43,6 +43,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _selectedIndex,
         onTap: (_onItemTapped),
         showUnselectedLabels: false,
+        showSelectedLabels: false,
         selectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(

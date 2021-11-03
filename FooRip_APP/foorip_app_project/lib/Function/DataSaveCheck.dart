@@ -4,7 +4,6 @@ class UserData {
   String ID = "";
   String Password = "";
 
-
   CheckData() async {
     final prefs = await SharedPreferences.getInstance();
     final ID = prefs.getString("ID") ?? null;

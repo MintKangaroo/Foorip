@@ -172,16 +172,16 @@ class _LoginPageState extends State<LoginPage> {
                               LoginIDtextController.text,
                               LoginPWtextController.text);
                           if (response == "Sucess") {
-                            if(_isChecked == true){
-                            //로그인 유지하기
-                            DataSaveCheckFun.AutoLogin(
-                                LoginIDtextController.text,
-                                LoginPWtextController.text);}
+                            if (_isChecked == true) {
+                              //로그인 유지하기
+                              DataSaveCheckFun.AutoLogin(
+                                  LoginIDtextController.text,
+                                  LoginPWtextController.text);
+                            }
                             MovetoMain();
                           } else {
-                            Get.snackbar(
-                              "", "로그인에 실패했습니다",
-                              snackPosition:SnackPosition.BOTTOM);
+                            Get.snackbar("", "로그인에 실패했습니다",
+                                snackPosition: SnackPosition.BOTTOM);
                           }
                         },
                         child: Container(
