@@ -11,6 +11,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  //TextField에서 아이디, PW 입력 받아 저장하는 변수
+  String RegisterEmailtextController = "";
+  String RegisterPWtextController = "";
+  String RegisterPWagaintextController = "";
+  String RegisterIDtextController = "";
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   //회원가입 버튼이 클릭됐을 때 Main or Login으로 이동하는 함수
   void MovetoMain() {
     Get.offAndToNamed('/MainPage');
@@ -26,166 +33,32 @@ class _RegisterPageState extends State<RegisterPage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
 
-    return Expanded(
-      child: SafeArea(
-        child: Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  //1
-                  height: 73,
-                  child: SizedBox(),
-                ),
-                Container(
-                  //2
-                  height: 63,
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Text(
-                          "회원가입",
-                          style: TextStyle(
-                              fontSize: 28,
-                              color: Color(0xffffb969),
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Container(
-                        width: 300,
-                        height: 5,
-                        color: Color(0xffffb969),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  //3
-
-                  child: Column(
-                    children: [
-                      Form(
-                          child: Column(
-                        children: [
-                          SizedBox(
-                            height: 28,
-                          ),
-                          Container(
-                            width: 290,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffdfa166).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                            child: TextField(
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: '아이디 입력',
-                                hintStyle: TextStyle(
-                                  color: Color(0xffffdfa166),
-                                  fontSize: 18,
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.mail_outline,
-                                  size: 30,
-                                  color: Color(0xffffdfa166),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Container(
-                            width: 290,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffdfa166).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                            child: TextField(
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: '비밀번호 입력',
-                                hintStyle: TextStyle(
-                                  color: Color(0xffffdfa166),
-                                  fontSize: 18,
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.settings,
-                                  size: 30,
-                                  color: Color(0xffffdfa166),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Container(
-                            width: 290,
-                            decoration: BoxDecoration(
-                              color: Color(0xffffdfa166).withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                            child: TextField(
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: '비밀번호 재입력',
-                                hintStyle: TextStyle(
-                                  color: Color(0xffffdfa166),
-                                  fontSize: 18,
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.settings,
-                                  size: 30,
-                                  color: Color(0xffffdfa166),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ))
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  //4
-                  height: 100,
-                ),
-                Container(
-                    //5
-
-                    child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                //1
+                height: 73,
+                child: SizedBox(),
+              ),
+              Container(
+                //2
+                height: 63,
+                child: Column(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        MovetoLogin();
-                      },
-                      child: Container(
-                        height: 70,
-                        width: 290,
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                          child: Center(
-                            child: Text(
-                              "가입하기",
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                        color: Color(0xffffb969),
+                    Center(
+                      child: Text(
+                        "회원가입",
+                        style: TextStyle(
+                            fontSize: 28,
+                            color: Color(0xffffb969),
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: 25,
                     ),
                     Container(
                       width: 300,
@@ -193,16 +66,271 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: Color(0xffffb969),
                     ),
                   ],
-                )),
-                Container(
-                  //6
-                  height: 50,
-                  child: SizedBox(),
                 ),
-                SizedBox(height: 50),
-                //7
-              ],
-            ),
+              ),
+              Container(
+                //3
+
+                child: Column(
+                  children: [
+                    Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 28,
+                            ),
+                            Container(
+                              width: 290,
+                              child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                autovalidateMode: AutovalidateMode.always,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return '아이디를 입력하세요';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  RegisterIDtextController = value!;
+                                },
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor:
+                                      Color(0xffffdfa166).withOpacity(0.4),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(3),
+                                      borderSide:
+                                          BorderSide(color: Colors.orange)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                    color: Color(0xffffdfa166).withOpacity(0.4),
+                                  )),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xffffdfa166)
+                                            .withOpacity(0.4),
+                                      ),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  hintText: '아이디 입력',
+                                  hintStyle: TextStyle(
+                                    color: Color(0xffffdfa166),
+                                    fontSize: 18,
+                                  ),
+                                  prefixIcon: Icon(
+                                    Icons.mail_outline,
+                                    size: 30,
+                                    color: Color(0xffffdfa166),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Container(
+                              width: 290,
+                              child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                autovalidateMode: AutovalidateMode.always,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return '비밀번호를 입력하세요';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  RegisterPWtextController = value!;
+                                },
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor:
+                                      Color(0xffffdfa166).withOpacity(0.4),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(3),
+                                      borderSide:
+                                          BorderSide(color: Colors.orange)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                    color: Color(0xffffdfa166).withOpacity(0.4),
+                                  )),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xffffdfa166)
+                                            .withOpacity(0.4),
+                                      ),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  hintText: '비밀번호 입력',
+                                  hintStyle: TextStyle(
+                                    color: Color(0xffffdfa166),
+                                    fontSize: 18,
+                                  ),
+                                  prefixIcon: Icon(
+                                    Icons.settings,
+                                    size: 30,
+                                    color: Color(0xffffdfa166),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Container(
+                              width: 290,
+                              child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                autovalidateMode: AutovalidateMode.always,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return '비밀번호를 입력하세요';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  RegisterPWagaintextController = value!;
+                                },
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor:
+                                      Color(0xffffdfa166).withOpacity(0.4),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(3),
+                                      borderSide:
+                                          BorderSide(color: Colors.orange)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                    color: Color(0xffffdfa166).withOpacity(0.4),
+                                  )),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xffffdfa166)
+                                            .withOpacity(0.4),
+                                      ),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  hintText: '비밀번호 재입력',
+                                  hintStyle: TextStyle(
+                                    color: Color(0xffffdfa166),
+                                    fontSize: 18,
+                                  ),
+                                  prefixIcon: Icon(
+                                    Icons.settings,
+                                    size: 30,
+                                    color: Color(0xffffdfa166),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 18,
+                            ),
+                            Container(
+                              width: 290,
+                              child: TextFormField(
+                                textInputAction: TextInputAction.next,
+                                autovalidateMode: AutovalidateMode.always,
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return '이메일을 입력하세요';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (value) {
+                                  RegisterEmailtextController = value!;
+                                },
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor:
+                                      Color(0xffffdfa166).withOpacity(0.4),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(3),
+                                      borderSide:
+                                          BorderSide(color: Colors.orange)),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                    color: Color(0xffffdfa166).withOpacity(0.4),
+                                  )),
+                                  border: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0xffffdfa166)
+                                            .withOpacity(0.4),
+                                      ),
+                                      borderRadius: BorderRadius.circular(3)),
+                                  hintText: '이메일 입력',
+                                  hintStyle: TextStyle(
+                                    color: Color(0xffffdfa166),
+                                    fontSize: 18,
+                                  ),
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    size: 30,
+                                    color: Color(0xffffdfa166),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                //4
+                height: 100,
+              ),
+              Container(
+                  //5
+
+                  child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      print("Hello?");
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        print(RegisterIDtextController);
+                        print(RegisterPWtextController);
+                        print(RegisterPWagaintextController);
+                        print(RegisterEmailtextController);
+                        MovetoLogin();
+                      }
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 290,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+                        child: Center(
+                          child: Text(
+                            "가입하기",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                      color: Color(0xffffb969),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    width: 300,
+                    height: 5,
+                    color: Color(0xffffb969),
+                  ),
+                ],
+              )),
+              Container(
+                //6
+                height: 50,
+                child: SizedBox(),
+              ),
+              SizedBox(height: 50),
+              //7
+            ],
           ),
         ),
       ),
