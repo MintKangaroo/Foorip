@@ -33,16 +33,15 @@ class _HomePageState extends State<HomePage> {
 
   //현재 위치를 찾는 함수
   Future<void> getLocation() async {
-      final position = await Location().getLocation();
+    final position = await Location().getLocation();
+    lat = position.latitude!;
+    lot = position.longitude!;
+    print(lat);
+    print(lot);
+    setState(() {
       lat = position.latitude!;
       lot = position.longitude!;
-      print(lat);
-      print(lot);
-      setState(() {
-        lat = position.latitude!;
-        lot = position.longitude!;
-      });
-
+    });
   }
 
   //구글맵 위에 위젯 보일지 말지 결정
@@ -93,68 +92,49 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: [
             Container(
-              height: displayHeight * 0.15,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 10,
-                  ),
+                  //상단 로고 영역
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: 50,
+                        width: displayWidth * 0.001,
                       ),
-                      Text(
-                        "푸립",
-                        style: TextStyle(fontSize: 25),
+                      SizedBox(width: displayWidth * 0.13),
+                      SizedBox(
+                        width: displayWidth * 0.15,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        height: displayHeight * 0.065,
+                        //width: displayWidth * 1,
+                        child: Image.asset("assets/images/fooriptextlogo.png"),
+                      ),
+                      SizedBox(
+                        width: displayWidth * 0.15,
                       ),
                       GestureDetector(
                         onTap: () {
                           MovetoSend();
                         },
                         child: Container(
-                          width: 50,
-                          height: 30,
+                          width: displayWidth * 0.13,
+                          height: displayHeight * 0.045,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(5),
+                            color: Color(0XffffFFB969),
                           ),
                           child: Icon(
                             Icons.send,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: displayWidth * 0.8,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffdfa166).withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: TextFormField(
-                        controller: FilterIDtextController,
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: '필터를 선택하세요.',
-                          hintStyle: TextStyle(
-                              color: Color(0xffffdfa166), fontSize: 18),
-                          suffixIcon: Icon(
-                            Icons.tune,
-                            size: 30,
-                            color: Color(0xffffdfa166),
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                    ),
+                      SizedBox(width: displayWidth * 0.001),
+                    ],
                   ),
+                  
                 ],
               ),
             ),
