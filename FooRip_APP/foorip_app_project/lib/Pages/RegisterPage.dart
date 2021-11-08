@@ -285,8 +285,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      print("Hello?");
                       if (_formKey.currentState!.validate()) {
+                        print("로그인 화면으로 이동합니다");
                         _formKey.currentState!.save();
                         print(RegisterIDtextController);
                         print(RegisterPWtextController);

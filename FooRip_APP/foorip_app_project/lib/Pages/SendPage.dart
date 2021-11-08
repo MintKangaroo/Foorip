@@ -10,10 +10,6 @@ class SendPage extends StatefulWidget {
 }
 
 class _SendPageState extends State<SendPage> {
-  // 보내기 버튼 클릭시 메인 페이지 이동
-  void MovetoMain() {
-    Get.toNamed('/MainPage');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +288,7 @@ class _SendPageState extends State<SendPage> {
                     ),
                     GestureDetector(
                         onTap: () {
-                          MovetoMain();
+                          Navigator.pop(context);
                         },
                         child: Container(
                           child: Center(
