@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
+import 'package:firebase_database/firebase_database.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -17,8 +18,11 @@ class _FavoritePageState extends State<FavoritePage> {
     log("SendPage로 보내기에서 오류 발생");
   }
 
+
   //필터 검색 입력창 변수 정의
   final FilterIDtextController = new TextEditingController();
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,24 @@ class _FavoritePageState extends State<FavoritePage> {
 
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
+
+    //데이터 추가
+  void createData(){
+  
+  }
+  //데이터 읽기
+  void readData(){
+    final RestaurantData = FirebaseDatabase().reference().child('foorip').child('RestaurantData');
+    
+  }
+  //데이터 업데이트
+  void updateData(){
+
+  }
+  //데이터 삭제
+  void deleteData(){
+
+  }
     return SafeArea(
         child: Scaffold(
       body: Column(
@@ -474,3 +496,4 @@ class _FavoritePageState extends State<FavoritePage> {
     ));
   }
 }
+

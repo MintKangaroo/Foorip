@@ -38,7 +38,7 @@ class _SettingPageState extends State<SettingPage> {
                 children: [
                   Center(
                     child: Container(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                       height: displayHeight * 0.065,
                       width: displayWidth * 1,
                       child: Image.asset("assets/images/fooriptextlogo.png"),
@@ -89,7 +89,7 @@ class _SettingPageState extends State<SettingPage> {
                                 ),
                                 Padding(
                                     padding: EdgeInsets.fromLTRB(
-                                        131, 0, 0, 0)), //왼 위 오 아래
+                                        0, 0, 0, 0)), //왼 위 오 아래
                                 Icon(
                                   Icons.chevron_right_rounded,
                                   size: 40,
@@ -121,7 +121,7 @@ class _SettingPageState extends State<SettingPage> {
                                 ),
                                 Padding(
                                     padding: EdgeInsets.fromLTRB(
-                                        131, 0, 0, 0)), //왼 위 오 아래
+                                        0, 0, 0, 0)), //왼 위 오 아래
                                 InkWell(
                                   onTap: () {
                                     DataSaveCheck.LogOutData();

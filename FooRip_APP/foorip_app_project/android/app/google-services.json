@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "160852174030",
+    "firebase_url": "https://foorip-736d9-default-rtdb.firebaseio.com",
+    "project_id": "foorip-736d9",
+    "storage_bucket": "foorip-736d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160852174030:android:fd2fb014b82918946b5c9f",
+        "android_client_info": {
+          "package_name": "com.example.foorip_app_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160852174030-6q4hrurpietdj72dp49f2q6tf3okuvfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZcoy4P_suq3xmKbRUDoPtV_rtGSgHKZg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160852174030-6q4hrurpietdj72dp49f2q6tf3okuvfj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
