@@ -33,9 +33,18 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+//헤헤 그냥 안나가진다 헤헤헿ㅎ
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () {
+        setState(() {
+          "You can not get out of here! kkk"; 
+        });
+         return Future(() => false);
+        
+      },
+      child :Scaffold(
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -96,6 +105,6 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
       ),
-    );
+    ));
   }
 }
