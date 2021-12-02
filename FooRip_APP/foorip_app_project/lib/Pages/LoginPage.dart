@@ -164,9 +164,10 @@ class _LoginPageState extends State<LoginPage> {
                       GestureDetector(
                         onTap: () async {
                           log("LoginPage : ServerContact 함수로 호출 후 Return 받기");
-                          //var serverresponse = ServerContact().LoginContact();
-                          //print(await serverresponse);
                           log("LoginPage : 만약 Return 값이 True이면 MainPage로 이동");
+                          //TODO: (수정)서버와의 통신
+                          ServerContact().User_readData();
+                          
                           //로그인 확인
                           var response = ServerContact().LoginTestServer(
                               LoginIDtextController.text,
@@ -178,6 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                                   LoginIDtextController.text,
                                   LoginPWtextController.text);
                             }
+
                             MovetoMain();
                           } else {
                             Get.snackbar("", "로그인에 실패했습니다",
@@ -226,7 +228,9 @@ class _LoginPageState extends State<LoginPage> {
                               color: Color(0xffffb969),
                             ),
                             GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+
+                                },
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -247,7 +251,9 @@ class _LoginPageState extends State<LoginPage> {
                               color: Color(0xffffb969),
                             ),
                             GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                      
+                                },
                                 child: Padding(
                                   padding:
                                       const EdgeInsets.fromLTRB(10, 0, 10, 0),

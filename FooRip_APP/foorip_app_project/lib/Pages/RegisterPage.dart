@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
+import 'package:foorip_app_project/Function/ServerContact.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -286,6 +287,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   GestureDetector(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
+                        //TODO: (수정)서버에 데이터 보내기
+                        ServerContact().User_createData();
+
                         print("로그인 화면으로 이동합니다");
                         _formKey.currentState!.save();
                         print(RegisterIDtextController);

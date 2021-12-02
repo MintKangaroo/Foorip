@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:developer';
+import 'package:foorip_app_project/Function/ServerContact.dart';
 
 class SendPage extends StatefulWidget {
   const SendPage({Key? key}) : super(key: key);
@@ -288,6 +289,8 @@ class _SendPageState extends State<SendPage> {
                     ),
                     GestureDetector(
                         onTap: () {
+                          //TODO: (수정)서버와의 통신
+                          ServerContact().Restaurant_createData();
                           Navigator.pop(context);
                         },
                         child: Container(

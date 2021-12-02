@@ -31,23 +31,7 @@ class _FavoritePageState extends State<FavoritePage> {
     var displayWidth = MediaQuery.of(context).size.width;
     var displayHeight = MediaQuery.of(context).size.height;
 
-    //데이터 추가
-  void createData(){
-  
-  }
-  //데이터 읽기
-  void readData(){
-    final RestaurantData = FirebaseDatabase().reference().child('foorip').child('RestaurantData');
-    
-  }
-  //데이터 업데이트
-  void updateData(){
 
-  }
-  //데이터 삭제
-  void deleteData(){
-
-  }
     return SafeArea(
         child: Scaffold(
       body: Column(
@@ -192,6 +176,7 @@ class _FavoritePageState extends State<FavoritePage> {
           ),
           Expanded(
             child: ListView.builder(
+              
                 itemCount: 7,
                 itemBuilder: (BuildContext context, int index) {
                   //카드

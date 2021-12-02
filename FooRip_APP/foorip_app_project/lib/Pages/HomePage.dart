@@ -9,6 +9,7 @@ import 'StampPage.dart';
 import 'dart:developer';
 import 'package:location/location.dart';
 import 'package:get/get.dart';
+import 'package:foorip_app_project/Function/ServerContact.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -170,6 +171,8 @@ class _HomePageState extends State<HomePage> {
                 left: 10,
                 child: GestureDetector(
                   onDoubleTap: () {
+                    //TODO: (수정)서버 통신
+                    ServerContact().Restaurant_readData();
                     MovetoFoodInform();
                   },
                   child: Visibility(
