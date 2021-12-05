@@ -11,7 +11,6 @@ class SendPage extends StatefulWidget {
 }
 
 class _SendPageState extends State<SendPage> {
-
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
@@ -27,7 +26,7 @@ class _SendPageState extends State<SendPage> {
               child: Center(
                   child: Image.asset(
             "assets/images/fooriptextlogo.png",
-            height: 70,
+            height: 30,
           ))),
         ),
         Flexible(
@@ -89,84 +88,57 @@ class _SendPageState extends State<SendPage> {
                                   style: TextStyle(fontSize: 18),
                                 ),
                                 Container(
-                                    width: displayWidth * 0.73,
+                                    width: displayWidth *
+                                        0.9, //TODO: 키워드랑 chip이랑 어느정도 띄우고 가로스크롤 사용할 수 있게해야함
                                     child: Row(
                                       children: [
-                                        //TODO:Chip 위젯으로 변경해주세여!!
-                                        Container(
-                                          child: Row(children: [
-                                            Text(
-                                              "파스타",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                //TODO: 지워지는 기능 구현
-                                              },
-                                              child: Icon(
-                                                Icons.close,
-                                              ),
-                                            )
-                                          ]),
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Colors.orange.withOpacity(0.7),
-                                            borderRadius:
-                                                BorderRadius.circular(3),
+                                        Chip(
+                                          label: Text('파스타'),
+                                          backgroundColor: Colors.amber,
+                                          labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                          deleteIcon: Icon(
+                                            Icons.cancel,
+                                            color: Colors.white,
                                           ),
+                                          onDeleted: () {
+                                            setState(() {
+                                              // TODO: 지워지는 기능 구현
+                                            });
+                                          },
                                         ),
-                                        SizedBox(
-                                          width: 8,
-                                        ),
-                                        Container(
-                                          child: Row(children: [
-                                            Text(
-                                              "양식",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                //TODO: 지워지는 기능 구현
-                                              },
-                                              child: Icon(
-                                                Icons.close,
-                                              ),
-                                            )
-                                          ]),
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Colors.orange.withOpacity(0.7),
-                                            borderRadius:
-                                                BorderRadius.circular(3),
+                                        Chip(
+                                          label: Text('양식'),
+                                          backgroundColor: Colors.amber,
+                                          labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                          deleteIcon: Icon(
+                                            Icons.cancel,
+                                            color: Colors.white,
                                           ),
+                                          onDeleted: () {
+                                            setState(() {
+                                              // TODO: 지워지는 기능 구현
+                                            });
+                                          },
                                         ),
-                                        SizedBox(
-                                          width: 8,
-                                        ),
-                                        Container(
-                                          child: Row(children: [
-                                            Text(
-                                              "감성",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                //TODO: 지워지는 기능 구현
-                                              },
-                                              child: Icon(
-                                                Icons.close,
-                                              ),
-                                            )
-                                          ]),
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Colors.orange.withOpacity(0.7),
-                                            borderRadius:
-                                                BorderRadius.circular(3),
+                                        Chip(
+                                          label: Text('감성'),
+                                          backgroundColor: Colors.amber,
+                                          labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                          deleteIcon: Icon(
+                                            Icons.cancel,
+                                            color: Colors.white,
                                           ),
+                                          onDeleted: () {
+                                            setState(() {
+                                              // TODO: 지워지는 기능 구현
+                                            });
+                                          },
                                         ),
                                       ],
                                     )),
@@ -279,11 +251,11 @@ class _SendPageState extends State<SendPage> {
                           SizedBox(
                             height: 15,
                           ),
-                          Container(
-                            height: 130,
-                            width: displayWidth * 0.9,
-                            color: Colors.grey.withOpacity(0.27),
-                          ),
+                          // Container(
+                          //   height: 130,
+                          //   width: displayWidth * 0.9,
+                          //   color: Colors.grey.withOpacity(0.27),
+                          // ),
                         ],
                       )),
                     ),
