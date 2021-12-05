@@ -132,6 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               width: 290,
                               child: TextFormField(
+                                obscureText: true,
                                 textInputAction: TextInputAction.next,
                                 autovalidateMode: AutovalidateMode.always,
                                 validator: (value) {
@@ -180,13 +181,17 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               width: 290,
                               child: TextFormField(
+                                obscureText: true,
                                 textInputAction: TextInputAction.next,
                                 autovalidateMode: AutovalidateMode.always,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return '비밀번호를 입력하세요';
                                   }
-                                  return null;
+                                  else if(RegisterPWtextController != value){
+                                    return null;
+                                  }
+                                  return '입력한 비밀번호와 다릅니다!';
                                 },
                                 onSaved: (value) {
                                   RegisterPWagaintextController = value!;
@@ -228,11 +233,16 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               width: 290,
                               child: TextFormField(
-                                textInputAction: TextInputAction.next,
+                                textInputAction: TextInputAction.send,
                                 autovalidateMode: AutovalidateMode.always,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return '이메일을 입력하세요';
+                                  }
+                                   else if (!RegExp(
+                                          r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+                                      .hasMatch(value)) {
+                                    return '유효한 이메일을 입력해 주세요';
                                   }
                                   return null;
                                 },
@@ -288,10 +298,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
                         //TODO: (수정)서버에 데이터 보내기
-                        ServerContact().User_createData();
-
+                      
                         print("로그인 화면으로 이동합니다");
                         _formKey.currentState!.save();
+                        ServerContact().User_createData(
+                            RegisterIDtextController,
+                            RegisterPWagaintextController,
+                            RegisterEmailtextController);
                         print(RegisterIDtextController);
                         print(RegisterPWtextController);
                         print(RegisterPWagaintextController);

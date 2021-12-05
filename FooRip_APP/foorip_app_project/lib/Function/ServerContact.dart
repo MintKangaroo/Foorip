@@ -17,15 +17,18 @@ class ServerContact {
   }
 
   //데이터 추가
-  void User_createData() async {
+  void User_createData(String Server_ID, String Server_PW, String Server_Email) async {
     print("서버에 데이터 보내기");
+    print(Server_ID);
     final create_UserData =
         FirebaseDatabase().reference().child('foorip');
     create_UserData.child('UserData').update(
       {
-      "민트색캥거루": 
+      "$Server_ID": 
       {
-        "ID": "yjun273",
+        "ID": "$Server_ID",
+        "PW": "$Server_PW",
+        "Email": "$Server_Email"
          }
     }
     );
