@@ -33,17 +33,33 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  Future<bool> _onBackPressed() async{
+    return await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("Do you want to exit the app?"),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("NO"),
+                  onPressed: () => Navigator.pop(context, false),
+                ),
+                FlatButton(
+                  child: Text("yes"),
+                  onPressed: () => Navigator.pop(context, true),
+                )
+              ],
+            ));
+  }
+
+  
+
+
+
 //헤헤 그냥 안나가진다 헤헤헿ㅎ
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () {
-        setState(() {
-          "You can not get out of here! kkk"; 
-        });
-         return Future(() => false);
-        
-      },
+      onWillPop: _onBackPressed,
       child :Scaffold(
       body: _children[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -108,3 +124,5 @@ class _MainPageState extends State<MainPage> {
     ));
   }
 }
+
+
