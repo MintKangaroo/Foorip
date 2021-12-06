@@ -37,6 +37,7 @@ dependencies:
   google_mobile_ads: ^0.13.5
   flutter_launcher_name: ^0.0.1
   firebase_database: ^8.1.0
+  flutter_email_sender: ^5.0.2
 
 flutter_launcher_name:
   name : "푸립"

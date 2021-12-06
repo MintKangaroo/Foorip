@@ -87,61 +87,37 @@ class _SendPageState extends State<SendPage> {
                                   "키워드",
                                   style: TextStyle(fontSize: 18),
                                 ),
-                                Container(
-                                    width: displayWidth *
-                                        0.9, //TODO: 키워드랑 chip이랑 어느정도 띄우고 가로스크롤 사용할 수 있게해야함
-                                    child: Row(
-                                      children: [
-                                        Chip(
-                                          label: Text('파스타'),
-                                          backgroundColor: Colors.amber,
-                                          labelStyle: TextStyle(
+                                SizedBox(width: 15,),
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 30,
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: 5,
+                                      itemBuilder: (BuildContext context, int index){
+                                      return Row(
+                                        children: [Chip(
+                                            label: Text('파스타'),
+                                            backgroundColor: Colors.amber,
+                                            labelStyle: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                            deleteIcon: Icon(
+                                              Icons.cancel,
                                               color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                          deleteIcon: Icon(
-                                            Icons.cancel,
-                                            color: Colors.white,
+                                            ),
+                                            onDeleted: () {
+                                              setState(() {
+                                                print("지울까요?");
+                                              });
+                                            },
                                           ),
-                                          onDeleted: () {
-                                            setState(() {
-                                              // TODO: 지워지는 기능 구현
-                                            });
-                                          },
-                                        ),
-                                        Chip(
-                                          label: Text('양식'),
-                                          backgroundColor: Colors.amber,
-                                          labelStyle: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                          deleteIcon: Icon(
-                                            Icons.cancel,
-                                            color: Colors.white,
-                                          ),
-                                          onDeleted: () {
-                                            setState(() {
-                                              // TODO: 지워지는 기능 구현
-                                            });
-                                          },
-                                        ),
-                                        Chip(
-                                          label: Text('감성'),
-                                          backgroundColor: Colors.amber,
-                                          labelStyle: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold),
-                                          deleteIcon: Icon(
-                                            Icons.cancel,
-                                            color: Colors.white,
-                                          ),
-                                          onDeleted: () {
-                                            setState(() {
-                                              // TODO: 지워지는 기능 구현
-                                            });
-                                          },
-                                        ),
-                                      ],
-                                    )),
+                                          SizedBox(width: 5,)
+                                          ]
+                                      );}),
+                                  ),
+                                ),
                               ],
                             ),
                           ),

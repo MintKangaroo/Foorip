@@ -49,9 +49,9 @@ class _FavoritePageState extends State<FavoritePage> {
                     //로고
                     child: Image.asset(
                       "assets/images/fooriptextlogo.png",
-                      height: 80,
+                      height: 50,
                     ),
-                    padding: const EdgeInsets.fromLTRB(130, 0, 0, 0)),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0)),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
                   child: GestureDetector(

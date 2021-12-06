@@ -4,6 +4,7 @@ import 'package:foorip_app_project/Function/DataSaveCheck.dart';
 import 'package:get/get.dart';
 import 'LoginPage.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -14,6 +15,15 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   var DataSaveCheck = new UserData();
+
+  final Email email = Email(
+    body: '',
+    subject: '[FooRip 문의]',
+    recipients: ['odotcompany3@gmail.com'],
+    cc: [],
+    bcc: [],
+    attachmentPaths: [],
+    isHTML: false,);
   @override
   Widget build(BuildContext context) {
     //Display width, height 구하기
@@ -70,31 +80,36 @@ class _SettingPageState extends State<SettingPage> {
                       child: Column(
                         children: [
                           //문의사항
-                          Container(
-                            //color: Colors.grey[100],
-                            height: displayHeight * 0.08,
-                            child: Row(
-                              children: [
-                                Padding(
-                                    padding: EdgeInsets.fromLTRB(6, 0, 0, 0)),
-                                Icon(
-                                  Icons.help_outline,
-                                  size: 25,
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0)),
-                                Text(
-                                  "문의사항",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                                Padding(
-                                    padding: EdgeInsets.fromLTRB(
-                                        0, 0, 0, 0)), //왼 위 오 아래
-                                Icon(
-                                  Icons.chevron_right_rounded,
-                                  size: 40,
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap:() async{
+                              await FlutterEmailSender.send(email);
+                            },
+                            child: Container(
+                              //color: Colors.grey[100],
+                              height: displayHeight * 0.08,
+                              child: Row(
+                                children: [
+                                  Padding(
+                                      padding: EdgeInsets.fromLTRB(6, 0, 0, 0)),
+                                  Icon(
+                                    Icons.help_outline,
+                                    size: 25,
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0)),
+                                  Text(
+                                    "문의사항",
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                  Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          0, 0, 0, 0)), //왼 위 오 아래
+                                  Icon(
+                                    Icons.chevron_right_rounded,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                           Container(
