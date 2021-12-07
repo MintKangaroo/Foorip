@@ -135,7 +135,31 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(width: displayWidth * 0.001),
                     ],
                   ),
-                  
+                   Container(
+                    width: displayWidth * 0.8,
+                    decoration: BoxDecoration(
+                      color: Color(0xffffdfa166).withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: TextFormField(
+                        controller: FilterIDtextController,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: '필터를 선택하세요.',
+                          hintStyle: TextStyle(
+                              color: Color(0xffffdfa166), fontSize: 18),
+                          suffixIcon: Icon(
+                            Icons.tune,
+                            size: 30,
+                            color: Color(0xffffdfa166),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

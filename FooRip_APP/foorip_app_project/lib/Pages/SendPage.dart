@@ -98,7 +98,7 @@ class _SendPageState extends State<SendPage> {
                                       itemBuilder: (BuildContext context, int index){
                                       return Row(
                                         children: [Chip(
-                                            label: Text('파스타'),
+                                            label: Text('$index'),
                                             backgroundColor: Colors.amber,
                                             labelStyle: TextStyle(
                                                 color: Colors.white,
